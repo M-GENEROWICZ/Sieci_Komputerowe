@@ -49,15 +49,15 @@
         \begin{figure}[hb]
             \centering
             \includegraphics[width=0.5\textwidth]{media/Logo_AGH.jpg}
-        \end{figure}
-                        
-            
+        \end{figure}   
     \end{center}
 \end{titlepage}
 
 \section{Wstęp}
-Na laboratoriach należało zapoznać się z protokołem HART, który jest standardem komunikacyjnym stosowanym w przemyśle, zasadami komunikacji oraz praktycznymi aspektami jego wykorzystania w przemyśle. W trakcie zajęć przeprowadzono ćwiczenia z wykorzystaniem sterownika \textit{WAGO 750-841} wyposażonym w dwukanałowy analogowy moduł wejścia, który pozwala na komunikację z urządzeniami HART. Elementem pomiarowym natomiast jest \textit{termopara typu K}, która została połączona z modułem WAGO za pomocą przetwornika temperatury \textit{TxIsoRail-HART}. 
-
+Na laboratoriach należało zapoznać się z protokołem HART, zasadami komunikacji oraz praktycznymi aspektami wykorzystania go w przemyśle. W trakcie zajęć przeprowadzono ćwiczenia z wykorzystaniem sterownika \textit{WAGO 750-841} wyposażonym w dwukanałowy analogowy moduł wejścia, który pozwala na komunikację z urządzeniami HART. Elementem pomiarowym natomiast jest \textit{termopara typu K}, która została połączona z modułem WAGO za pomocą przetwornika temperatury \textit{TxIsoRail-HART}. 
+\subsection{Protokół HART}
+Protokół HART \textit{(High Addressable Remote Transducer)} jest standardem komunikacyjnym stosowanym w przemyśle, który pozwala na komunikację z urządzeniami pomiarowymi, takimi jak czujniki, przetworniki, zawory, itp. Protokół HART umożliwia przesyłanie danych cyfrowych i analogowych w jednym przewodzie. Komunikacja odbywa się za pomocą sygnałów modulowanych na sygnale prądu stałego, co pozwala na przesyłanie danych cyfrowych wraz z sygnałem analogowym. Protokół HART jest kompatybilny z większością urządzeń pomiarowych, co pozwala na łatwe wdrożenie w istniejących systemach. Urządzenia, które wykorzystują protokół HART, są podzielone na nadrzędne (np. sterowniki PLC) i podrzędne(np. czujniki).
+\newpage
 \section{Przebieg ćwiczenia}
 
 \subsection{Konfiguracja PLC}
@@ -75,7 +75,7 @@ Przed przystąpieniem do programowania należało skonfigurować parametry komun
 \newpage
 
 
-\subsection{Program - HART\_INFOT} \label{1a}
+\subsection{Program - HART\_INFO} \label{1a}
 Po połączeniu układu zgodnie z rysunkiem \ref{fig1} należy za pomocą śruby mikrometrycznej znaleźć położenie rdzenia dla, którego napięcie na wyjściu wynosiło 0V, wartość ta wynosi \textit{62,2cm}. 
 
 
