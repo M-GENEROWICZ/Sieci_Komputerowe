@@ -61,19 +61,21 @@ Na laboratoriach należało zapoznać się z protokołem HART, który jest stand
 \section{Przebieg ćwiczenia}
 
 \subsection{Konfiguracja PLC}
-
-Celem zadania jest zbadanie właściwości metrologicznych transformatorowego czujnika LVDT drogi. W tym celu należy wyznaczyć charakterystykę statyczną czujnika, tj. zależność napięcia wyjściowego czujnika od położenia rdzenia przy napięciu zmiennym. Następnie należy wyznaczyć charakterystykę czujnika w układzie z wzmacniaczem z modulacją AM. Schemat układu pomiarowego przedstawiono na rysunku \ref{fig1}.
+W pierwszej części zadania należało zaprogramować sterownik \textit{WAGO}. W tym celu należało skorzystać z aplikacji \textit{CoDeSys}. Ważne aby w nowo stworzonym projekcie ustawić \textit{Type od POU} na \textit{Program} a język programowania na \textit{FBD} ze względy na konieczność wykorzystania biblioteki do obsługi \textit{POU} napisanej w tym właśnie języku. Następnie należało dodać moduły wejścia i wyjścia w wirtualnym wnętrzu magistrali. Uzupełniona magistrala wyglądała jak na rysunku \ref{fig1}.
 
 \vspace{1em}
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{media/Brak zdjęcia.png}
-    \caption{Schemat połączeń przy współpracy toru pomiarowego z czujnikiem LVDT.}
+    \includegraphics[width=1.3\linewidth]{media/6.png}
+    \caption{Wnętrze magistrali w aplikacji \textit{CoDeSys}.}
     \label{fig1}
 \end{figure}
+
+Przed przystąpieniem do programowania należało skonfigurować parametry komunikacji oraz, w razie gdyby jej nie było, dodać bibliotekę do obsługi komunikacji HART \textit{WagoLibHART\_03.lib}
 \newpage
 
-\subsubsection{Wyznaczenie charakterystyki statycznej czujnika LVDT} \label{1a}
+
+\subsubsection{Program - HART\_INFOT} \label{1a}
 Po połączeniu układu zgodnie z rysunkiem \ref{fig1} należy za pomocą śruby mikrometrycznej znaleźć położenie rdzenia dla, którego napięcie na wyjściu wynosiło 0V, wartość ta wynosi \textit{62,2cm}. 
 
 
