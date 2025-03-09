@@ -1,0 +1,300 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{indentfirst}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage[colorlinks=true, linkcolor=gray, urlcolor=blue, citecolor=green]{hyperref}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[justification=centering]{caption}
+\usepackage[utf8]{inputenc} 
+\usepackage{subfig}
+
+
+\usepackage{mwe} % for 'example-image'
+\usepackage{newfloat}
+\DeclareFloatingEnvironment{graph}
+\addto\captionspolish{%
+  \renewcommand{\graphname}{Wykres}%
+  \renewcommand{\figurename}{Rysunek}%
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Sprawozdanie z laboratorium 6}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Badanie właściwości metrologicznych toru
+        pomiarowego z modulacją AM przeznaczonego do
+        współpracy z czujnikami wielkości nieelektrycznych
+            
+        \vspace{1.5cm}
+            
+        \textbf{Marek Generowicz}
+
+        \normalsize      
+        \textcolor{gray}{30.12.2024}
+        \vfill
+            
+        \vspace{0.8cm}
+                        
+            
+    \end{center}
+\end{titlepage}
+
+\section{Wstęp}
+Na laboratoriach należało zrealizować układ pomiarowy z modulacją AM przeznaczony do współpracy z czujnikami wielkości nieelektrycznych, w tym transformatorowym czujnikiem LVDT. Celem było zbadanie właściwości metrologicznych toru pomiarowego, wyznaczenie charakterystyk statycznych wzmacniacza z modulacją AM oraz układu czujnik + tor.
+
+\section{Przebieg ćwiczenia}
+
+\subsection{Badanie właściwości metrologicznych transformatorowego czujnika LVDT drogi}
+
+Celem zadania jest zbadanie właściwości metrologicznych transformatorowego czujnika LVDT drogi. W tym celu należy wyznaczyć charakterystykę statyczną czujnika, tj. zależność napięcia wyjściowego czujnika od położenia rdzenia przy napięciu zmiennym. Następnie należy wyznaczyć charakterystykę czujnika w układzie z wzmacniaczem z modulacją AM. Schemat układu pomiarowego przedstawiono na rysunku \ref{fig1}.
+
+\vspace{1em}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/fig1.png}
+    \caption{Schemat połączeń przy współpracy toru pomiarowego z czujnikiem LVDT.}
+    \label{fig1}
+\end{figure}
+\newpage
+
+\subsubsection{Wyznaczenie charakterystyki statycznej czujnika LVDT} \label{1a}
+Po połączeniu układu zgodnie z rysunkiem \ref{fig1} należy za pomocą śruby mikrometrycznej znaleźć położenie rdzenia dla, którego napięcie na wyjściu wynosiło 0V, wartość ta wynosi \textit{62,2cm}. 
+
+
+
+Następnie należało mierzyć napięcia na wyjściu czujnika w odległość 5 cm od punktu zerowego w obu kierunkach z skokiem o 5 mm. Wartości tych pomiarów przedstawiają trzy pierwsze kolumny tabeli \ref{tab1}.
+
+Na podstawie zmierzonych napięć i przemieszczeń stworzono wykres \ref{wyk1}.
+
+
+
+\begin{table}[ht]
+    \begin{centering}
+    \begin{tabular}{|r|r|r|r|r|}
+        \hline
+        \makecell{Względne \\przemieszczenie [cm]} & \makecell{Przemieszczenie \\na śrubie [cm]}& \makecell{Napięcie zmierzone [V]}& \makecell{Napięcie\\ obliczone [V]}& \makecell{Moduł \\błędu bezwzględnego}\\\hline
+        -5 & 57,2 & 0,59 & -0,586 & 0,004 \\\hline
+        -4,5 & 57,7 & 0,53 & -0,5274 & 0,0026 \\\hline
+        -4 & 58,2 & 0,47 & -0,4688 & 0,0012 \\\hline
+        -3,5 & 58,7 & 0,41 & -0,4102 & 0,0002 \\\hline
+        -3 & 59,2 & 0,35 & -0,3516 & 0,0016 \\\hline
+        -2,5 & 59,7 & 0,29 & -0,293 & 0,003 \\\hline
+        -2 & 60,2 & 0,23 & -0,2344 & 0,0044 \\\hline
+        -1,5 & 60,7 & 0,17 & -0,1758 & 0,0058 \\\hline
+        -1 & 61,2 & 0,11 & -0,1172 & 0,0072 \\\hline
+        -0,5 & 61,7 & 0,053 & -0,0586 & 0,0056 \\\hline
+        0 & 62,2 & 0 & 0  & 0 \\\hline
+        0,5 & 62,7 & 0,053 & 0,0586 & 0,0056 \\\hline
+        1 & 63,2 & 0,11 & 0,1172 & 0,0072 \\\hline
+        1,5 & 63,7 & 0,17 & 0,1758 & 0,0058 \\\hline
+        2 & 64,2 & 0,23 & 0,2344 & 0,0044 \\\hline
+        2,5 & 64,7 & 0,29 & 0,293 & 0,003 \\\hline
+        3 & 65,2 & 0,35 & 0,3516 & 0,0016 \\\hline
+        3,5 & 65,7 & 0,41 & 0,4102 & 0,0002 \\\hline
+        4 & 66,2 & 0,47 & 0,4688 & 0,0012 \\\hline
+        4,5 & 66,7 & 0,53 & 0,5274 & 0,0026 \\\hline
+        5 & 67,2 & 0,59 & 0,586 & 0,004\\\hline
+    \end{tabular}
+    \caption{Wyniki pomiarów i obliczeń w zadaniu \textit{1a}.}
+    \label{tab1}
+    \end{centering}
+\end{table}
+
+\vspace{1em}
+Kolejno przyjmując ujemne wartości napięcia dla $x < 0$ należy należy aproksymować wartości pomiarów wielomianem stopnia pierwszego, z czego otrzymujemy współczynnik \textit{a = 0,1172} oraz \textit{b = 0}.  Po zastosowaniu wzoru \Ref{eq1} otrzymujemy wartość napięcia obliczonego przedstawione w czwartej kolumnie tabeli \Ref{tab1}. 
+
+\begin{equation} \label{eq1}
+    y = ax + b
+\end{equation}
+\newpage
+
+
+
+\begin{graph}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/wyk1.png}
+    \caption{Wartość napięcia zmierzonego w zależności od przemieszczenia rdzenia.}
+    \label{wyk1}
+\end{graph}
+
+Następnie stosując wzór \ref{eq2}, obliczamy wartość błędu bezwzględnego dla każdego pomiaru. Największe błędy bezwzględne wynoszą \textpm 0,0072 i występują w odległości 1 cm od odległości śruby, dla której napięcie zmierzone wynosi 0V. Przebieg wartości błędu bezwzględnego w stosunku do względnego wartości przemieszczenia śruby od stanu początkowego przedstawia wykres \Ref{wyk2}, natomiast moduł wartości błędy bezwzględnego przedstawia ostatnia kolumna tabeli \ref{tab1}.
+
+
+\begin{equation} \label{eq2}
+    \Delta_U = U_{pomiar} - U_{obliczone}
+\end{equation}
+
+
+\newpage
+Na koniec zadania \textit{1a} należało obliczyć błąd nieliniowości zgodnie z wzorem \ref{eq3}. Z tabeli możemy odczytać wartość maksymalnego błędu bezwzględnego oraz zakres napięcia wyjściowego czujnika . Po podstawieniu wartości do wzoru otrzymujemy wartość błędu nieliniowości \textit{0,0122}.
+
+
+\begin{equation} \label{eq3}
+    \delta_{U_{max}} = \frac{|\Delta_U|_{max}}{U_{max} - U_{min}}
+\end{equation}
+
+\begin{graph}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/wyk2.png}
+    \caption{Wartość błędu bezwzględnego w zależności od przemieszczenia rdzenia.}
+    \label{wyk2}
+\end{graph}
+
+\newpage
+\subsubsection{Obserwacja sygnałów na poszczególnych etapach przetwarzania czujnik LVDT – wzmacniacz z modulacją AM}
+
+W celu obserwacji sygnałów na poszczególnych etapach należało układ z rysunku \Ref{fig1} podpiąć do oscyloskopu, który był połączony z komputerem z oprogramowaniem pozwalającym na odczytywanie sygnałów. 
+A następnie przeprowadzić pomiary dla rdzenia w pozycji zerowej oraz w pozycji przesuniętej w obu kierunkach.\\
+Z powodu braku czasu na wykonanie ostatniego, 2 zadania, w trakcie pracy na oscyloskopie mogliśmy zaobserwować dużo ciekawych zależności i lepiej zrozumieć działanie układu.
+
+\begin{figure}[!ht]
+    \centering
+    % Pod figura 1
+    \subfloat[Pierwszy wykres z oscyloskopu]{
+        \includegraphics[width=0.5\textwidth]{media/fig2.png}
+        \label{fig:sub1}
+    }
+    % Pod figura 2
+    \subfloat[Drugi wykres z oscyloskopu]{
+        \includegraphics[width=0.5\textwidth]{media/fig3.png}
+        \label{fig:sub2}
+    }
+    \hfill
+            \subfloat[Trzeci wykres z oscyloskopu]{
+                \includegraphics[width=0.5\textwidth]{media/fig7.png}
+                \label{fig:sub0}
+    }
+    
+    \caption{Wykresy z oscyloskopu.}
+    \label{fig:main}
+\end{figure}
+
+\newpage
+Na rysunkach \ref{fig:main} i \ref{fig:main1} przedstawione jest pięć różnych zdjęcia stworzonych przez oscyloskop. Na każdym z nich widać 4 wykresy. Pomarańczowy to jest sygnał wejściowy, niebieska to sygnał wyjściowy układu, fioletowy to moduł oddanego sygnału, a zielona to sygnał fazy. Te cztery wyjścia oscyloskopu pozwalają nam odczytać i zrozumieć jak działa nasz układ.
+
+\vspace{1em}
+Zdjęcie \ref{fig:sub0} przedstawia wykresy dla rdzenia w pozycji zerowej. Widać że sygnał modułu jest zerowy a sygnał fazy jest na środku. Z tego powodu sygnał wyjścia również się zeruje.
+
+\vspace{1em}
+Na zdjęciu \Ref{fig:sub1} widać że sygnał wyjścia jest niewiele przesunięty względem sygnału wejściowego, natomiast na zdjęciu \Ref{fig:sub2} widać że sygnał wyjścia jest w przeciw fazie do sygnału wejściowego. Ponadto moduły są przeciwne względem siebie a wykres fazy na drugim zdjęciu jest znacznie niżej niż na pierwszym zdjęciu. 
+Wynika to z tego że odległość rdzenia od początkowej pozycji w trakcie pomiarów różni się o taką samą wartość od położenia zerowego, jednak w przeciwnym kierunku.
+
+\begin{figure}[!ht]
+    \centering
+    % Pod figura 3
+    \subfloat[Czwarty wykres z oscyloskopu]{
+        \includegraphics[width=0.5\textwidth]{media/fig4.png}
+        \label{fig:sub3}
+    }
+    % Pod figura 4
+    \subfloat[Piąty wykres z oscyloskopu]{
+        \includegraphics[width=0.5\textwidth]{media/fig5.png}
+        \label{fig:sub4}
+    }
+
+    \caption{Wykresy z oscyloskopu.}
+    \label{fig:main1}
+\end{figure}
+
+
+\vspace{1em}
+Na wykresach \Ref{fig:sub3} i \Ref{fig:sub4} widać że sygnały wyjść zmieniają się bardzo intensywnie, co jest spowodowane bardzo nagłymi zmianami położenia rdzenia względem początkowej pozycji. Pokaz ten został przeprowadzony aby pokazać jak układ zachowuje się w ekstremalnych warunkach oraz jak zmieniają się sygnały wyjściowe przy dużych zmianach położenia rdzenia.
+
+\vspace{1em}
+Praca na oscyloskopie pozwoliła nam zobaczyć jak zachowują się wyjścia układu w zależności od położenia rdzenia oraz jakie są różnice między sygnałami wejściowymi a wyjściowymi. Jest to bardzo użyteczna informacja dla osób pracujących z układami pomiarowymi, ponieważ pozwala na zrozumienie jak działa układ oraz jakie są różnice korelacje między wyjściowymi.
+\newpage
+\subsection{Wyznaczanie charakterystyki statycznej układu czujnik + tor z modulacją amplitudową}
+
+Celem ćwiczenie było wyznaczenie charakterystyki statycznej układu zbudowanego zgodnie z schematem przedstawionym na rysunku \Ref{fig6}, a następnie przeprowadzenie analizy analogicznej jak w zadaniu \textit{1a}, opisanym w punkcie \ref{1a} z tą różnicą że należało nadać sygnał stały.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/fig6.png}
+    \caption{Schemat układu do wyznaczania charakterystyki statycznej układu czujnik + tor z modulacją amplitudową.}
+    \label{fig6}
+\end{figure}
+\newpage
+Po połączeniu układu zgodnie z rysunkiem \Ref{fig6} należy za pomocą śruby mikrometrycznej znaleźć położenie rdzenia, dla którego napięcie na wyjściu wynosiło 0V, wartość ta wynosi \textit{62,25cm}.\\Następnie przeprowadzone zostały pomiary napięcia na wyjściu czujnika w odległość 5 cm od punktu zerowego w obu kierunkach z skokiem o 5 mm. Wartości tych pomiarów przedstawiają trzy pierwsze kolumny tabeli \Ref{tab2}.
+
+\begin{table}[ht]
+    \begin{tabular}{|r|r|r|r|r|}
+    \hline
+    \makecell{Względne \\przemieszczenie [cm]} & \makecell{Przemieszczenie \\na śrubie [cm]}& \makecell{Napięcie zmierzone [V]}& \makecell{Napięcie\\ obliczone [V]}& \makecell{Moduł \\błędu bezwzględnego}\\\hline
+    -5   & 57,25 & 1,06  & 1,05   & 0,01  \\ \hline
+    -4,5 & 57,75 & 0,96  & 0,945  & 0,015 \\ \hline
+    -4   & 58,25 & 0,85  & 0,84   & 0,01 \\ \hline
+    -3,5 & 58,75 & 0,74  & 0,735  & 0,005 \\ \hline
+    -3   & 59,25 & 0,64  & 0,63   & 0,01 \\ \hline
+    -2,5 & 59,75 & 0,53  & 0,525  & 0,005 \\ \hline
+    -2   & 60,25 & 0,43  & 0,42   & 0,01 \\ \hline
+    -1,5 & 60,75 & 0,32  & 0,315  & 0,005 \\ \hline
+    -1   & 61,25 & 0,21  & 0,21   & 0 \\ \hline
+    -0,5 & 61,75 & 0,1   & 0,105  & 0,005 \\ \hline
+    0    & 62,25 & 0     & 0      & 0 \\ \hline
+    0,5  & 62,75 & -0,11 & -0,105 & 0,005 \\ \hline
+    1    & 63,25 & -0,21 & -0,21  & 0 \\ \hline
+    1,5  & 63,75 & -0,32 & -0,315 & 0,005 \\ \hline
+    2    & 64,25 & -0,43 & -0,42  & 0,01 \\ \hline
+    2,5  & 64,75 & -0,53 & -0,525 & 0,005 \\ \hline
+    3    & 65,25 & -0,64 & -0,63  & 0,01 \\ \hline
+    3,5  & 65,75 & -0,74 & -0,735 & 0,005 \\ \hline
+    4    & 66,25 & -0,85 & -0,84  & 0,01 \\ \hline
+    4,5  & 66,75 & -0,96 & -0,945 & 0,015 \\ \hline
+    5    & 67,25 & -1,06 & -1,05  & 0,01 \\ \hline
+    \end{tabular}
+    \caption{Wyniki pomiarów i obliczeń w zadaniu \textit{3}.}
+    \label{tab2}
+\end{table}
+\newpage
+\vspace{1em}
+Następnie na podstawie zmierzonych napięć i przemieszczeń stworzono wykres \Ref{wyk3}. Z wykresu tego aproksymowane zostały wartości współczynników \textit{a = -0,21} oraz \textit{b = 0}. Po zastosowaniu wzoru \Ref{eq1} otrzymujemy wartość napięcia obliczonego przedstawione w czwartej kolumnie tabeli \Ref{tab2}.
+
+
+\begin{graph}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/wyk3.png}
+    \caption{Wartość napięcia zmierzonego w zależności od przemieszczenia rdzenia.}
+    \label{wyk3}
+\end{graph}
+\newpage
+Posiadając wartości napięć zmierzonych i obliczonych, obliczono wartość błędu bezwzględnego dla każdego pomiaru zgodnie z wzorem \Ref{eq2}. Największe błędy bezwzględne wynoszą \textpm 0,015 i występują dla w odległości 4,5 cm od odległości śruby dla, której napięcie zmierzone wynosi 0V. Przebieg wartości błędu bezwzględnego w stosunku do względnego wartości przemieszczenia śruby od stanu początkowego przedstawia wykres \Ref{wyk4}, natomiast moduł wartości błędu bezwzględnego przedstawiają ostatnia kolumna tabeli \Ref{tab2}.
+
+\begin{graph}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/wyk4.png}
+    \caption{Wartość błędu bezwzględnego w zależności od przemieszczenia rdzenia.}
+    \label{wyk4}
+\end{graph}
+Na koniec zadania \textit{3} obliczono błąd nieliniowości zgodnie z wzorem \Ref{eq3}. Z tabeli możemy odczytać wartość maksymalnego błędu bezwzględnego oraz zakres napięcia wyjściowego czujnika po podstawieniu wartości do wzoru otrzymujemy wartość błędu nieliniowości \textit{0,007}.
+\newpage
+
+\section{Podsumowanie}
+Sprawozdanie dotyczy badania właściwości metrologicznych toru pomiarowego z modulacją AM współpracującego z transformatorowym czujnikiem LVDT. Realizowane zadania obejmowały wyznaczanie charakterystyk statycznych czujnika oraz układu czujnik + tor, analizę błędów, a także obserwację sygnałów na różnych etapach przetwarzania.
+
+
+W ramach badań wyznaczono charakterystykę statyczną czujnika LVDT, mierząc napięcie wyjściowe w funkcji przemieszczenia rdzenia. Uzyskane dane wskazują na dobrą liniowość czujnika w badanym zakresie, z maksymalnym błędem nieliniowości wynoszącym 0,0122. Analiza sygnałów na oscyloskopie pozwoliła zobrazować dynamikę układu czujnik-wzmacniacz oraz jego reakcje na różne pozycje rdzenia i szybkie zmiany położenia. Wyznaczono również charakterystykę statyczną całego układu czujnik + tor, obliczając błędy i uzyskując błąd nieliniowości na poziomie 0,007, co wskazuje na wysoką zgodność z modelem teoretycznym.
+\begin{enumerate}
+    \item \textbf{Właściwości czujnika LVDT:} Czujnik wykazuje dobrą liniowość i precyzję w badanym zakresie, co potwierdza jego przydatność w precyzyjnych pomiarach przemieszczeń.
+    \item \textbf{Skuteczność modulacji AM:} Wzmacniacz z modulacją AM skutecznie przetwarza sygnały z czujnika, minimalizując zakłócenia.
+    \item \textbf{Praktyczne zastosowania:} Układ może być stosowany w systemach pomiarowych wymagających wysokiej dokładności, takich jak mechanika precyzyjna.
+    \item \textbf{Obserwacje oscyloskopowe:} Analiza sygnałów umożliwiła lepsze zrozumienie dynamiki układu oraz korelacji między sygnałami wejściowymi a wyjściowymi.
+\end{enumerate}
+Podsumowując, przeprowadzone badania wykazały, że tor pomiarowy z czujnikiem LVDT i wzmacniaczem z modulacją AM spełnia założenia metrologiczne, oferując wysoką dokładność i stabilność pomiarów.
+
+\end{document}
