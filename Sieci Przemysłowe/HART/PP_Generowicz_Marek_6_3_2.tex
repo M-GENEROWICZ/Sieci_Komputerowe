@@ -58,11 +58,11 @@
 Na laboratoriach należało zapoznać się z protokołem HART, zasadami komunikacji oraz praktycznymi aspektami wykorzystania go w przemyśle. W trakcie zajęć przeprowadzono ćwiczenia z wykorzystaniem sterownika \textit{WAGO 750-841} wyposażonym w dwukanałowy analogowy moduł wejścia, który pozwala na komunikację z urządzeniami HART. Elementem pomiarowym natomiast jest \textit{termopara typu K}, która została połączona z modułem WAGO za pomocą przetwornika temperatury \textit{TxIsoRail-HART}. 
 \subsection{Protokół HART}
 Protokół HART \textit{(High Addressable Remote Transducer)} jest standardem komunikacyjnym stosowanym w przemyśle, który pozwala na komunikację z urządzeniami pomiarowymi, takimi jak czujniki, przetworniki, zawory, itp. Protokół HART umożliwia przesyłanie danych cyfrowych i analogowych w jednym przewodzie. Komunikacja odbywa się za pomocą sygnałów modulowanych na sygnale prądu stałego, co pozwala na przesyłanie danych cyfrowych wraz z sygnałem analogowym. Protokół HART jest kompatybilny z większością urządzeń pomiarowych, co pozwala na łatwe wdrożenie w istniejących systemach. Urządzenia, które wykorzystują protokół HART, są podzielone na nadrzędne (np. sterowniki PLC) i podrzędne (np. czujniki).
-
+\newpage
 \section{Przebieg ćwiczenia}
 
 \subsection{Konfiguracja PLC}
-W pierwszej części zadania należało zaprogramować sterownik \textit{WAGO}. W tym celu należało skorzystać z aplikacji \textit{CoDeSys}. Ważne aby w nowo stworzonym projekcie ustawić \textit{Type od POU} na \textit{Program} a język programowania na \textit{FBD} ze względy na konieczność wykorzystania biblioteki do obsługi \textit{POU} napisanej w tym właśnie języku. Następnie należało dodać moduły wejścia i wyjścia w wirtualnym wnętrzu magistrali. Uzupełniona magistrala wyglądała jak na rysunku \ref{fig1}.
+W pierwszej części zadania należało zaprogramować sterownik \textit{WAGO}. W tym celu należało skorzystać z aplikacji \textit{CoDeSys}. Ważne aby w nowo stworzonym projekcie ustawić \textit{Type od POU} na \textit{Program} a język programowania na \textit{FBD} ze względy na konieczność wykorzystania biblioteki do obsługi \textit{POU} napisanej w tym właśnie języku. Następnie należało dodać moduły wejścia i wyjścia w wirtualnym wnętrzu magistrali. Uzupełniona magistrala wyglądała jak na zdjęcie \ref{fig1}.
 
 \vspace{1em}
 \begin{figure}[ht]
@@ -77,9 +77,50 @@ Przed przystąpieniem do programowania należało skonfigurować parametry komun
 
 
 \subsection{Program - HART\_INFO} \label{1a}
+Po skonfigurowaniu PLC należało przejść do napisania kodu obsługującego moduł HART. Okno programu jest podzielone na dwie części, w górnej znajdują się zmienne używane w kodzie, a w dolnej znajduje się logika kodu. Zdjęcie \ref{fig2} przedstawia całość kodu napisanej na zajęciach aplikacji. Jak widać logika zależy od trzech bloków logicznych.
 
+\vspace{1em}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/4.png}
+    \caption{Program obsługujący wejście analogowe modułu HART.}
+    \label{fig2}
+\end{figure}
+\vspace{2em}
+
+Pierwszy z nich \textit{HART\_INFO} służy do odczytu czy cały układ jest w stanie komunikować się z modułem HART. 
+
+Drugi blok \textit{HART\_CMD3} za pomocą uniwersalnej komendy HART numer 3 służy do odczytu zmiennych w module HART.
+
+Trzeci blok \textit{TON} jest zegarem, który pozwala na cykliczne wykonywanie logiki drugiego bloku, ponieważ blok ten jest uruchamiany rosnącym zboczem parametru \textit{CMD3Start}. Ważne jest aby wejście timera zanegować aby zegar działał zgodnie z tym co oczekujemy.
+\newpage
+
+Stworzenie takiego programu daje nam możliwość odczytu zmiennych z modułu HART, co jest niezbędne do dalszych działań. W trakcie uruchomiania programu wartości należało pamiętać aby ustawić wartości zmiennych \textit{Module} oraz \textit{Channel} na wartości 1. Wygląd uruchomionego programu przedstawia zdjęcie \ref{fig3}.
+
+\vspace{1em}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/3.png}
+    \caption{Uruchomiony program do obsługi modułu HART.}
+    \label{fig3}
+\end{figure}
+
+\newpage
 \subsection{Program - odczyt zmiennych HART}
+Po poprawnej konfiguracji oraz zaprogramowaniu sterownika, można przystąpić do odczytu zmiennych z modułu HART. W tym celu należy uruchomić program i ustawić poprawne wartości zmiennych \textit{Module} oraz \textit{Channel} na wartości 1. Po uruchomieniu programu, dzięki blokowi \textit{TON} program będzie cyklicznie co 6 sekund aktualizował dane, które moduł HART będzie otrzymywał od termopary typu K.
 
+Aby odczytać wartości odebrane przez termoparę typu K oraz przekazane przez moduł HART, należy w części programu gdzie znajdują się parametry układu rozwinąć część \textit{CMD3Data}. Zdjęcie \ref{fig4} przedstawia jak wygląda odczyt zmiennych z modułu HART.
+
+
+\vspace{1em}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{media/1.png}
+    \caption{Dane otrzymane z modułu HART.}
+    \label{fig4}
+\end{figure}
+
+\newpage
 \subsection{Dane HART}
 W celu sprawdzenia ilości zmiennych dynamicznych skorzystaliśmy z  tabeli z dokumentacji urządzenia. 
 \begin{table}[H]
@@ -95,4 +136,20 @@ Aby tabela była użyteczna sprawdziliśmy wartość pola CMD3.bCmdDataCount, kt
     \caption{Wartości poszczególnych pól adCmdData wraz z ich sprawdzeniem z użyciem języka C}
 \end{figure}
 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{media/2.png}
+    \caption{Możesz użyć bo masz tu surowe dane}
+\end{figure}
+
+\newpage
+\section{Podsumowanie}
+Nauka programowania modułu HART jest bardzo przydatna ponieważ pozwala na komunikację z urządzeniami pomiarowymi w przemyśle ponieważ daje możliwość komunikacji dwukierunkowej nawet w niesprzyjających warunkach. W trakcie laboratoriów udało nam się zaprogramować sterownik \textit{WAGO 750-841}, odczytać dane z modułu HART oraz nauczyć się odczytywać "surowe" dane aby odczytać poszukiwane informacje. Dzięki temu zdobyliśmy praktyczną wiedzę na temat protokołu HART co umożliwi nam w przyszłości praktyczne wykorzystanie tej wiedzy w przemyśle.
+\vspace{1em}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{media/HART.jpg}
+    \caption{Wygląd modułu HART}
+\end{figure}
 \end{document}
