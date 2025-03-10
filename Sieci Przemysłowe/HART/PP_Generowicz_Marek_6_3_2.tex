@@ -23,6 +23,7 @@
 \addto\captionspolish{%
   \renewcommand{\graphname}{Wykres}%
   \renewcommand{\figurename}{Rysunek}%
+  \renewcommand{\tablename}{Tabela}%
 }
 
 
@@ -76,5 +77,22 @@ Przed przystąpieniem do programowania należało skonfigurować parametry komun
 
 
 \subsection{Program - HART\_INFO} \label{1a}
+
+\subsection{Program - odczyt zmiennych HART}
+
+\subsection{Dane HART}
+W celu sprawdzenia ilości zmiennych dynamicznych skorzystaliśmy z  tabeli z dokumentacji urządzenia. 
+\begin{table}[H]
+    \centering
+    \includegraphics{media/Tabela_z_dokumentacji.png}
+    \caption{Tabela z dokumentacji}
+\end{table}
+Aby tabela była użyteczna sprawdziliśmy wartość pola CMD3.bCmdDataCount, którego wartość wynosi 19. Dzięki temu wiemy, że nasze urządzenie obsługuje dokładnie 3 zmienne dynamiczne. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{media/7.png}
+    \caption{Wartości poszczególnych pól adCmdData wraz z ich sprawdzeniem z użyciem języka C}
+\end{figure}
 
 \end{document}
