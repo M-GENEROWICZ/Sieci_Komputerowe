@@ -122,25 +122,39 @@ Aby odczytać wartości odebrane przez termoparę typu K oraz przekazane przez m
 
 \newpage
 \subsection{Dane HART}
-W celu sprawdzenia ilości zmiennych dynamicznych skorzystaliśmy z  tabeli z dokumentacji urządzenia. 
+W celu sprawdzenia ilości zmiennych dynamicznych należ skorzystać z  tabeli dostępnej w dokumentacji urządzenia. 
 \begin{table}[H]
     \centering
     \includegraphics{media/Tabela_z_dokumentacji.png}
-    \caption{Tabela z dokumentacji}
+    \caption{Zależność między ilością zmiennych dynamicznych a długością tablicy CMD.abCmdData}
 \end{table}
-Aby tabela była użyteczna sprawdziliśmy wartość pola CMD3.bCmdDataCount, którego wartość wynosi 19. Dzięki temu wiemy, że nasze urządzenie obsługuje dokładnie 3 zmienne dynamiczne. 
-
+Aby tabela była użyteczna sprawdzamy wartość pola CMD3.bCmdDataCount, która w naszym przypadku wynosi 19.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{media/7.png}
-    \caption{Wartości poszczególnych pól adCmdData wraz z ich sprawdzeniem z użyciem języka C}
+    \includegraphics[width=0.5\linewidth]{media/19_ez.png}
+    \caption{Wartość pola CMD3.bCmdDataCount}
 \end{figure}
+Dzięki temu wiadomo, że nasze urządzenie obsługuje dokładnie 3 zmienne dynamiczne.\\
 
-
+Następnie należy sprawdzić jakie informacje są przekazywane w poszczególnych bitach oraz zdekodować i porównać znalezione wartości do danych widniejących w strukturze CMD3DATA. W celu sprawdzenia informacji o poszczególnych polach należy skorzystać z dokumentacji urządzenia.
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{media/Tabela_z_dokumentacji2.png}
+    \caption{Znaczenie poszczególnych bitów w tabeli abCmdData}
+\end{table}
+W celu sprawdzenia wartości \textit{PV (Primary Value)} został użyty prosty program w języku C. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{media/2.png}
-    \caption{Możesz użyć bo masz tu surowe dane}
+    \includegraphics[width=0.8\linewidth]{media/8.png}
+    \caption{Program w języku C do sprawdzenia wartości PV}
+\end{figure}
+Jak widać, jego odpowiedź jest zgodna (co do ilości wyśwetlanych miejsc po przecinku) z danymi wyświetlanymi w polu CMD3Data.rVarPrimary (Rysunek \ref{fig4}).
+\\
+Drugim sposobem sprawdzenia wartości \textit{PV} jest internetowy konwerter dostępny pod linkiem https://www.h-schmidt.net/FloatConverter/IEEE754.html. Po wprowadzeniu odczytanych wartości otrzymujemy identyczny wynik. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{media/konwersja2.png}
+    \caption{Konwersja wartości binarnych na wartość PV}
 \end{figure}
 
 \newpage
