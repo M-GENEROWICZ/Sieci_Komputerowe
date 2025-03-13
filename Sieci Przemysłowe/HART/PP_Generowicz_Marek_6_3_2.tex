@@ -139,25 +139,25 @@ Dzięki temu wiadomo, że nasze urządzenie obsługuje dokładnie 3 zmienne dyna
 Następnie należy sprawdzić jakie informacje są przekazywane w poszczególnych bitach oraz zdekodować i porównać znalezione wartości do danych widniejących w strukturze CMD3DATA. W celu sprawdzenia informacji o poszczególnych polach należy skorzystać z dokumentacji urządzenia.
 \begin{table}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{media/Tabela_z_dokumentacji2.png}
+    \includegraphics[width=1\linewidth]{media/Tabela_z_dokumentacji2.png}
     \caption{Znaczenie poszczególnych bitów w tabeli abCmdData}
 \end{table}
 W celu sprawdzenia wartości \textit{PV (Primary Value)} został użyty prosty program w języku C. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{media/8.png}
+    \includegraphics[width=1\linewidth]{media/8.png}
     \caption{Program w języku C do sprawdzenia wartości PV}
 \end{figure}
 Jak widać, jego odpowiedź jest zgodna (co do ilości wyśwetlanych miejsc po przecinku) z danymi wyświetlanymi w polu CMD3Data.rVarPrimary (Rysunek \ref{fig4}).
-\\
+
 Drugim sposobem sprawdzenia wartości \textit{PV} jest internetowy konwerter dostępny pod linkiem https://www.h-schmidt.net/FloatConverter/IEEE754.html. Po wprowadzeniu odczytanych wartości otrzymujemy identyczny wynik. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{media/konwersja2.png}
+    \includegraphics[width=1\linewidth]{media/konwersja2.png}
     \caption{Konwersja wartości binarnych na wartość PV}
 \end{figure}
 
-\newpage
+
 \section{Podsumowanie}
 Nauka programowania modułu HART jest bardzo przydatna ponieważ pozwala na komunikację z urządzeniami pomiarowymi w przemyśle ponieważ daje możliwość komunikacji dwukierunkowej nawet w niesprzyjających warunkach. W trakcie laboratoriów udało nam się zaprogramować sterownik \textit{WAGO 750-841}, odczytać dane z modułu HART oraz nauczyć się odczytywać "surowe" dane aby odczytać poszukiwane informacje. Dzięki temu zdobyliśmy praktyczną wiedzę na temat protokołu HART co umożliwi nam w przyszłości praktyczne wykorzystanie tej wiedzy w przemyśle.
 \vspace{1em}
