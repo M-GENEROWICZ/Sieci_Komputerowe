@@ -55,13 +55,18 @@
 \end{titlepage}
 
 \section{Wstęp}
-Na laboratoriach należało zapoznać się z protokołem HART, zasadami komunikacji oraz praktycznymi aspektami wykorzystania go w przemyśle. W trakcie zajęć przeprowadzono ćwiczenia z wykorzystaniem sterownika \textit{WAGO 750-841} wyposażonym w dwukanałowy analogowy moduł wejścia, który pozwala na komunikację z urządzeniami HART. Elementem pomiarowym natomiast jest \textit{termopara typu K}, która została połączona z modułem WAGO za pomocą przetwornika temperatury \textit{TxIsoRail-HART}. 
-\vspace{1em}
-\begin{figure}[ht]
+Na laboratoriach należało zapoznać się z cyfrowym, szeregowym protokołem komunikacyjnym IO-Link. Protokół ten jest szeroko używany w przemyśle do komunikacji sterowników z urządzeniami peryferyjnymi. IO-Link jest systemem typu point-to-point, co oznacza że każde urządzenie jest połączone bezpośrednio z masterem. IO-Link pozwala na łączenie się z urządzeniami analogowymi i cyfrowymi, a także może zostać użyty jako zasilanie. Ze względu na swoją specyfikę, stosowany jest głównie w warunkach lokalnych. 
+
+\section{Opis Stanowiska}
+Na stanowisku laboratoryjnym (Rysunek \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens wyposażony w czterokanałowy moduł IO-Link. Do sterownika podłączono ultradźwiękowy czujnik odległości UGT205. Zestaw uzupełniały kontrolki LED w kolorze niebieskim i białym. 
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{media/Brak_zdjecia.png}
-    \caption{Program obsługujący wejście analogowe modułu HART.}
-    \label{fig2}
+    \includegraphics[width=1\textwidth]{media/Stanowisko.png}
+    \caption{Stanowisko laboratoryjne (zdjęcie z instrukcji)}
+    \label{fig:stanowisko}
 \end{figure}
-\vspace{2em}
+
+\section{Cel ćwiczenia}
+
+Celem ćwiczenia było zapoznanie się z protokołem IO-Link oraz jego konfiguracją w sterowniku S7-1200. 
 \end{document}
