@@ -55,10 +55,11 @@
 \end{titlepage}
 
 \section{Wstęp}
-Na laboratoriach należało zapoznać się z cyfrowym, szeregowym protokołem komunikacyjnym IO-Link. Protokół ten jest szeroko używany w przemyśle do komunikacji sterowników z urządzeniami peryferyjnymi. IO-Link jest systemem typu point-to-point, co oznacza że każde urządzenie jest połączone bezpośrednio z masterem. IO-Link pozwala na łączenie się z urządzeniami analogowymi i cyfrowymi, a także może zostać użyty jako zasilanie. Ze względu na swoją specyfikę, stosowany jest głównie w warunkach lokalnych. 
+Na laboratoriach należało zapoznać się z cyfrowym, szeregowym protokołem komunikacyjnym IO-Link oraz jego konfiguracją w sterowniku S7-1200. Protokół ten jest szeroko używany w przemyśle do komunikacji sterowników z urządzeniami peryferyjnymi. IO-Link jest systemem typu point-to-point, co oznacza że każde urządzenie jest połączone bezpośrednio z masterem. IO-Link pozwala na łączenie się z urządzeniami analogowymi i cyfrowymi, a także może zostać użyty jako zasilanie. Ze względu na swoją specyfikę, stosowany jest głównie w warunkach lokalnych. 
 
 \section{Opis Stanowiska}
-Na stanowisku laboratoryjnym (Rysunek \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens wyposażony w czterokanałowy moduł IO-Link. Do sterownika podłączono ultradźwiękowy czujnik odległości UGT205. Zestaw uzupełniały kontrolki LED w kolorze niebieskim i białym. 
+Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens wyposażony w czterokanałowy moduł IO-Link. Do sterownika podłączono ultradźwiękowy czujnik odległości UGT205. Zestaw uzupełniały kontrolki LED w kolorze niebieskim i białym. 
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{media/Stanowisko.png}
@@ -66,7 +67,59 @@ Na stanowisku laboratoryjnym (Rysunek \ref{fig:stanowisko}) znajdował się ster
     \label{fig:stanowisko}
 \end{figure}
 
-\section{Cel ćwiczenia}
+\newpage
+\section{Przebieg ćwiczenia}
+Aby wykonać ćwiczenie należało wykonać następujące kroki:
+\begin{itemize}
+    \item konfiguracją sterownika
+    \item programowanie S7-PCT (Port Configuration Tool)
+    \item odczyt danych z PLC
+\end{itemize}
 
-Celem ćwiczenia było zapoznanie się z protokołem IO-Link oraz jego konfiguracją w sterowniku S7-1200. 
+\subsection{Konfiguracja sterownika}
+Po poprawnym skonfigurowaniu CPU oraz M 1278 4xIO-Link master z programem TIA Portal V19, otrzymywało się wirtualny odpowiednik stanowiska laboratoryjnego. Wygląd w programie TIA Portal przedstawiono na zdjęciu \ref{fig:konfiguracja}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{media/xd2.png}
+    \caption{Schemat stanowiska w programie TIA Portal}
+    \label{fig:konfiguracja}
+\end{figure}
+
+Aby dokończyć konfiguracje należało przeprowadzić identyfikacje sprzętową modułu dla portu pierwszego oraz przesłać konfiguracje do sterownika. Po zakończeniu konfiguracji należało przejść do programowania S7-PCT.
+
+\newpage
+\subsection{Programowanie S7-PCT}
+Aby rozpocząć należało kliknąć moduł IO-LINK prawym przyciskiem myszy a następnie wybrać \textit{Start Device Tool}. Otwarło się wtedy okno przedstawione na zdjęciu \ref{fig:Dev_tool}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{media/xd4.png}
+    \caption{Okno Device Tool}
+    \label{fig:Dev_tool}
+\end{figure}
+
+Następnie należało przejść do zakładki status i połączyć się z urządzeniem wynikiem czego powinno wyświetlić się kno jak na zdjęciu \ref{fig:status}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{media/xd3.png}
+    \caption{Okno statusu po pomyślnym nawiązaniu połączenia.}
+    \label{fig:status}
+\end{figure}
+
+\newpage
+
+W następnej kolejności należało przejść do zakładki \textit{Adresses}, a w nim zaznaczyć ikony przy \textit{Show PLC addresses} oraz \textit{All ports}.
+Umożliwia to odczyt adresów zmiennych procesowych urządzenia w PLC. Na rysunku \ref{fig:adresy} %O adresach i co oznaczają te OUT PVD itd.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{media/xd.png}
+    \caption{Okno adresów}
+    \label{fig:adresy}
+\end{figure}
+
+
 \end{document}
