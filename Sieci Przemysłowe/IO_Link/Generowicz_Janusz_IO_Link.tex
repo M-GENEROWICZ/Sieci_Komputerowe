@@ -81,7 +81,7 @@ Po poprawnym skonfigurowaniu CPU oraz M 1278 4xIO-Link master z programem TIA Po
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{media/xd2.png}
+    \includegraphics[width=0.8\textwidth]{media/xd2.png}
     \caption{Schemat stanowiska w programie TIA Portal}
     \label{fig:konfiguracja}
 \end{figure}
@@ -94,7 +94,7 @@ Aby rozpocząć należało kliknąć moduł IO-LINK prawym przyciskiem myszy a n
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{media/xd4.png}
+    \includegraphics[width=0.8\textwidth]{media/xd4.png}
     \caption{Okno Device Tool}
     \label{fig:Dev_tool}
 \end{figure}
@@ -103,20 +103,28 @@ Następnie należało przejść do zakładki status i połączyć się z urządz
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{media/xd3.png}
+    \includegraphics[width=0.8\textwidth]{media/xd3.png}
     \caption{Okno statusu po pomyślnym nawiązaniu połączenia.}
     \label{fig:status}
 \end{figure}
 
 \newpage
 
-W następnej kolejności należało przejść do zakładki \textit{Adresses}, a w nim zaznaczyć ikony przy \textit{Show PLC addresses} oraz \textit{All ports}.
-Umożliwia to odczyt adresów zmiennych procesowych urządzenia w PLC. Na rysunku \ref{fig:adresy} %O adresach i co oznaczają te OUT PVD itd.
+W następnej kolejności należało przejść do zakładki \textit{Adresses}, a w nim zaznaczyć \textit{Show PLC addresses} oraz \textit{All ports}.
+Umożliwia to odczyt adresów zmiennych procesowych urządzenia w PLC. Na rysunku \ref{fig:adresy}.
+
+W programie dostajemy cztery outputy, które oznaczają odpowiednio: 
+\begin{itemize}
+    \item \textbf{PDV 1}(int) - odległość od czujnika w milimetrach
+    \item \textbf{OUT 1}(bool) - status \textit{Swiching Signal Channel 1}
+    \item \textbf{OUT 2}(bool) - status \textit{Output Configuration 2}
+    \item \textbf{Device Status}(byte) - bajt statusowy
+\end{itemize}
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{media/xd.png}
+    \includegraphics[width=0.8\textwidth]{media/xd.png}
     \caption{Okno adresów}
     \label{fig:adresy}
 \end{figure}
