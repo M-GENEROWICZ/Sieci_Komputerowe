@@ -128,6 +128,49 @@ W programie dostajemy cztery outputy, które oznaczają odpowiednio:
     \caption{Okno adresów}
     \label{fig:adresy}
 \end{figure}
+\newpage
+\section{Odczyt danych z PLC}
+
+Po poprawnym skonfigurowaniu i podłączeniu sprzętu, można było przystąpić do odczytu danych z PLC. W tym celu należało uruchomić program TIA Portal i dodać nową \textit{Tag table} o nazwie \textit{UGT205}. Do podglądu danych z czujnika posłuży \textit{Watch table}. Dzięki temu można było obserwować zmiany wartości parametrów w czasie rzeczywistym oraz modyfikować je w trakcie działania programu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/xd69.png}
+    \caption{Utowrzone watch table}
+    \label{fig:watch}
+\end{figure}
+
+Następnym krokiem było kontrolne sprawdzenie działania układu. Przekonaliśmy się, że czujnik nie jest w stanie poprawnie odczytać wartości mniejszej niż 10 cm. Wartość ta była zbyt mała dla czujnika ultradźwiękowego.
+
+Później, poprzez dwie drabinki, nadaliśmy sterownikowi PLC poniższą logikę:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/xd5.png}
+    \caption{Logika sterownika PLC}
+    \label{fig:logika}
+\end{figure}
+
+W ten sposób wyjście z czujnika \textit{OUT 1} zaświeca kontrolkę niebieską, a \textit{OUT 2} kontrolkę białą.
+
+\subsection{Odczyt danych na żądanie}
+
+Aby umożliwić odczyt danych na żądanie, należało posłużyć się data blokiem. Stworzony przez nas został nazwany \textit{IO\_LIK\_DEVICE\_DB}. Został w nim wyłączony atrybut \textit{Optimized block access}, a zdefiniowane w nim tagi zostały przypisane do odpowiednich adresów zmiennych procesowych urządzenia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/xd7.png}
+    \caption{Data block IO\_LINK\_DEVICE\_DB}
+    \label{fig:db}
+\end{figure}
+
+Tagi, zdefiniowane w powyższy sposób są zgodne z dokumentacją biblioteki IO\_Link.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/doku.png}
+    \caption{Fragment dokumentacji biblioteki IO\_Link}
+    \label{fig:tagi}
+\end{figure}
+
 
 
 \end{document}
