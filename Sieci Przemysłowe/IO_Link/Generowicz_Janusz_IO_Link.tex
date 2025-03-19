@@ -171,6 +171,32 @@ Tagi, zdefiniowane w powyższy sposób są zgodne z dokumentacją biblioteki IO\
     \label{fig:tagi}
 \end{figure}
 
+Kolejnym krokiem było dodanie bloku IO\_LINK\_DEVICE do sekcji \textit{Global libraries} w programie TIA Portal. Następnie należało dodać blok do programu i przypisać go do odpowiedniego urządzenia IO-Link. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/xd6.png}
+    \caption{Blok dodany do programu}
+    \label{fig:blok}
+\end{figure}
+
+Parametry, które podczas działania programu nie będą ulegały zmianom zostały zdefiniowane jako \textit{constant}. W ten sposób zabezpieczamy się przed przypadkową zmianą wartości. Każde z pozostałych parametrow zostały podpięte do uprzednio przygotowanych tagów. Tak przygotowany program został przesłany do sterownika.
+
+Zgodnie z dokumentacją, parametry SP1 i SP2 powinny być ustawione na fabryczne wartości, czyli kolejno 1600 [mm] i 150 [mm]. Możemy to zaobserwować patrząc w sekcję DATA Words na wiersze \%DB1.DBW0 i \%DB1.DBW2 Rysunek \ref{fig:watch}.
+
+\subsection{Zapis danych na żądanie}
+W celu sprawdzenia działania zapisu danych na żądanie zmieniliśmy parametry SP1 i SP2 na wartości 300 [mm] oraz 150 [mm]. Po zapisaniu zmian i ponownym odczycie wartości zmiennych procesowych, zauważyliśmy, że wartości SP1 i SP2 zostały zmienione na odpowiednio 300 [mm] i 150 [mm]. Zmiany te zostały zapisane w sekcji DATA Words na wiersze \%DB1.DBW0 i \%DB1.DBW2 Rysunek \ref{fig:watch2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/xd966.png}
+    \caption{Zmienione wartości SP1 i SP2}
+    \label{fig:watch2}
+\end{figure}
+
+\section{Podsumowanie}
+
+Podczas laboratorium zapoznaliśmy się z protokołem IO-Link oraz jego konfiguracją w sterowniku S7-1200. Wykonaliśmy ćwiczenie, w którym skonfigurowaliśmy sterownik, a następnie odczytaliśmy dane z czujnika ultradźwiękowego. Następnie zaimplementowaliśmy logikę sterownika PLC, która w zależności od odległości od czujnika, zaświecała kontrolki niebieską i białą. Nauczyliśmy się również jak zapisywać dane na żądanie oraz jak odczytywać je w czasie rzeczywistym.
 
 
 \end{document}
