@@ -185,7 +185,18 @@ Parametry, które podczas działania programu nie będą ulegały zmianom zosta�
 Zgodnie z dokumentacją, parametry SP1 i SP2 powinny być ustawione na fabryczne wartości, czyli kolejno 1600 [mm] i 150 [mm]. Możemy to zaobserwować patrząc w sekcję DATA Words na wiersze \%DB1.DBW0 i \%DB1.DBW2 Rysunek \ref{fig:watch}.
 
 \subsection{Zapis danych na żądanie}
-W celu sprawdzenia działania zapisu danych na żądanie zmieniliśmy parametry SP1 i SP2 na wartości 300 [mm] oraz 150 [mm]. Po zapisaniu zmian i ponownym odczycie wartości zmiennych procesowych, zauważyliśmy, że wartości SP1 i SP2 zostały zmienione na odpowiednio 300 [mm] i 150 [mm]. Zmiany te zostały zapisane w sekcji DATA Words na wiersze \%DB1.DBW0 i \%DB1.DBW2 Rysunek \ref{fig:watch2}.
+W celu sprawdzenia działania zapisu danych na żądanie zmieniliśmy parametry SP1 i SP2 na wartości 300 [mm] oraz 150 [mm].
+
+
+
+Następnie dodaliśmy do naszej \textit{Watch table} pola \textit{readWrite} oraz \textit{writeLen} oraz zmieniliśmy wartość \textit{readWrite} na \textit{True} co pozwoliło nam na zapis wartości do tablicy paramterów.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/dx.png}
+    \caption{Dodane pola do watch table}
+    \label{fig:watch3}
+\end{figure}
+Jednocześnie ustawiliśmy wartość \textit{writeLen} na 4, aby zapis odbywał się na czterech bitach. Po wygenrowaniu rosnącego zbocza na zmiennej request, przeszliśmy do trybu odczytu i zobaczyliśmy nasze paramtery w sekcji \textit{DATA Words} Rysunek \ref{fig:watch2}.
 
 \begin{figure}[H]
     \centering
@@ -193,6 +204,8 @@ W celu sprawdzenia działania zapisu danych na żądanie zmieniliśmy parametry 
     \caption{Zmienione wartości SP1 i SP2}
     \label{fig:watch2}
 \end{figure}
+
+
 
 \section{Podsumowanie}
 
