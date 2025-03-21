@@ -129,87 +129,8 @@ W programie dostajemy cztery outputy, które oznaczają odpowiednio:
     \label{fig:adresy}
 \end{figure}
 \newpage
-\section{Odczyt danych z PLC}
 
-Po poprawnym skonfigurowaniu i podłączeniu sprzętu, można było przystąpić do odczytu danych z PLC. W tym celu należało uruchomić program TIA Portal i dodać nową \textit{Tag table} o nazwie \textit{UGT205}. Do podglądu danych z czujnika posłuży \textit{Watch table}. Dzięki temu można było obserwować zmiany wartości parametrów w czasie rzeczywistym oraz modyfikować je w trakcie działania programu.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/xd69.png}
-    \caption{Utowrzone watch table}
-    \label{fig:watch}
-\end{figure}
-
-Następnym krokiem było kontrolne sprawdzenie działania układu. Przekonaliśmy się, że czujnik nie jest w stanie poprawnie odczytać wartości mniejszej niż 10 cm. Wartość ta była zbyt mała dla czujnika ultradźwiękowego.
-
-Później, poprzez dwie drabinki, nadaliśmy sterownikowi PLC poniższą logikę:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/xd5.png}
-    \caption{Logika sterownika PLC}
-    \label{fig:logika}
-\end{figure}
-
-W ten sposób wyjście z czujnika \textit{OUT 1} zaświeca kontrolkę niebieską, a \textit{OUT 2} kontrolkę białą.
-
-\subsection{Odczyt danych na żądanie}
-
-Aby umożliwić odczyt danych na żądanie, należało posłużyć się data blokiem. Stworzony przez nas został nazwany \textit{IO\_LIK\_DEVICE\_DB}. Został w nim wyłączony atrybut \textit{Optimized block access}, a zdefiniowane w nim tagi zostały przypisane do odpowiednich adresów zmiennych procesowych urządzenia.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/xd7.png}
-    \caption{Data block IO\_LINK\_DEVICE\_DB}
-    \label{fig:db}
-\end{figure}
-
-Tagi, zdefiniowane w powyższy sposób są zgodne z dokumentacją biblioteki IO\_Link.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/doku.png}
-    \caption{Fragment dokumentacji biblioteki IO\_Link}
-    \label{fig:tagi}
-\end{figure}
-
-Kolejnym krokiem było dodanie bloku IO\_LINK\_DEVICE do sekcji \textit{Global libraries} w programie TIA Portal. Następnie należało dodać blok do programu i przypisać go do odpowiedniego urządzenia IO-Link. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/xd6.png}
-    \caption{Blok dodany do programu}
-    \label{fig:blok}
-\end{figure}
-
-Parametry, które podczas działania programu nie będą ulegały zmianom zostały zdefiniowane jako \textit{constant}. W ten sposób zabezpieczamy się przed przypadkową zmianą wartości. Każde z pozostałych parametrow zostały podpięte do uprzednio przygotowanych tagów. Tak przygotowany program został przesłany do sterownika.
-
-Zgodnie z dokumentacją, parametry SP1 i SP2 powinny być ustawione na fabryczne wartości, czyli kolejno 1600 [mm] i 150 [mm]. Możemy to zaobserwować patrząc w sekcję DATA Words na wiersze \%DB1.DBW0 i \%DB1.DBW2 Rysunek \ref{fig:watch}.
-
-\subsection{Zapis danych na żądanie}
-W celu sprawdzenia działania zapisu danych na żądanie zmieniliśmy parametry SP1 i SP2 na wartości 300 [mm] oraz 150 [mm].
-
-
-
-Następnie dodaliśmy do naszej \textit{Watch table} pola \textit{readWrite} oraz \textit{writeLen} oraz zmieniliśmy wartość \textit{readWrite} na \textit{True} co pozwoliło nam na zapis wartości do tablicy paramterów.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/dx.png}
-    \caption{Dodane pola do watch table}
-    \label{fig:watch3}
-\end{figure}
-Jednocześnie ustawiliśmy wartość \textit{writeLen} na 4, aby zapis odbywał się na czterech bitach. Po wygenrowaniu rosnącego zbocza na zmiennej request, przeszliśmy do trybu odczytu i zobaczyliśmy nasze paramtery w sekcji \textit{DATA Words} Rysunek \ref{fig:watch2}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/xd966.png}
-    \caption{Zmienione wartości SP1 i SP2}
-    \label{fig:watch2}
-\end{figure}
-
-
-
-\section{Podsumowanie}
-
-Podczas laboratorium zapoznaliśmy się z protokołem IO-Link oraz jego konfiguracją w sterowniku S7-1200. Wykonaliśmy ćwiczenie, w którym skonfigurowaliśmy sterownik, a następnie odczytaliśmy dane z czujnika ultradźwiękowego. Następnie zaimplementowaliśmy logikę sterownika PLC, która w zależności od odległości od czujnika, zaświecała kontrolki niebieską i białą. Nauczyliśmy się również jak zapisywać dane na żądanie oraz jak odczytywać je w czasie rzeczywistym.
-
+\subsection{Odczyt danych z PLC}
+nic
 
 \end{document}
