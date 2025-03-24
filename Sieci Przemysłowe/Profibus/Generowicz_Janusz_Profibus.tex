@@ -38,14 +38,14 @@
             
         \vspace{0.5cm}
         \LARGE
-        IO-LINK (S7-1200) 
+        Profibus (S7-1200) 
             
         \vspace{1.5cm}
             
         \textbf{Łukasz Janusz\\Marek Generowicz}
 
         \normalsize      
-        \textcolor{gray}{13.03.2025}
+        \textcolor{gray}{17.03.2025}
         \vfill
         \begin{figure}[hb]
             \centering
@@ -55,15 +55,15 @@
 \end{titlepage}
 
 \section{Wstęp}
-Na laboratoriach należało zapoznać się z cyfrowym, szeregowym protokołem komunikacyjnym IO-Link oraz jego konfiguracją w sterowniku S7-1200. Protokół ten jest szeroko używany w przemyśle do komunikacji sterowników z urządzeniami peryferyjnymi. IO-Link jest systemem typu point-to-point, co oznacza że każde urządzenie jest połączone bezpośrednio z masterem. IO-Link pozwala na łączenie się z urządzeniami analogowymi i cyfrowymi, a także może zostać użyty jako zasilanie. Ze względu na swoją specyfikę, stosowany jest głównie w warunkach lokalnych. 
+Na laboratoriach należało zapoznać się z komunikacją po sieci Profibus pomiędzy sterownikiem S7-1200 a oddaloną wyspą pomiarową Simatic ET 200SP. Komunikacja ta stosowany jest w przemyśle do komunikacji pomiędzy urządzeniami pomiarowymi a sterownikami PLC zazwyczaj znajduje się w szafie sterowniczej. Zasadniczą zaletą jest możliwość połączenia urządzenia pomiarowego z PLC na duże odległości, nawet do 1200 metrów, dodatkowo do jednej sieci Profibusa można podłączyć maksymalnie 32 urządzenia.
 
 \section{Opis Stanowiska}
 Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens wyposażony w czterokanałowy moduł IO-Link. Do sterownika podłączono ultradźwiękowy czujnik odległości UGT205. Zestaw uzupełniały kontrolki LED w kolorze niebieskim i białym. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{media/Brak_zdjecia.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z instrukcji)}
+    \includegraphics[width=1\textwidth]{media/Cale_stanowisko.jpg}
+    \caption{Stanowisko laboratoryjne}
     \label{fig:stanowisko}
 \end{figure}
 
