@@ -22,7 +22,7 @@
 \DeclareFloatingEnvironment{graph}
 \addto\captionspolish{%
   \renewcommand{\graphname}{Wykres}%
-  \renewcommand{\figurename}{Rysunek}%
+  \renewcommand{\figurename}{Zdjęcie}%
   \renewcommand{\tablename}{Tabela}%
 }
 
@@ -38,7 +38,7 @@
             
         \vspace{0.5cm}
         \LARGE
-        Profibus (S7-1200) 
+        Profibus 
             
         \vspace{1.5cm}
             
@@ -58,79 +58,48 @@
 Na laboratorium należało zapoznać się z komunikacją po sieci Profibus pomiędzy sterownikiem S7-1200 a oddaloną wyspą pomiarową Simatic ET 200SP. Komunikacja ta stosowana jest w przemyśle do komunikacji pomiędzy urządzeniami pomiarowymi a sterownikami PLC zazwyczaj znajdującymi się w szafie sterowniczej. Zasadniczą zaletą jest możliwość połączenia urządzenia pomiarowego z PLC na duże odległości, nawet do 1200 metrów. Dodatkowo do jednej sieci Profibus można podłączyć maksymalnie 32 urządzenia.
 
 \section{Opis Stanowiska}
-Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens wyposażony w czterokanałowy moduł IO-Link. Do sterownika podłączono ultradźwiękowy czujnik odległości UGT205. Zestaw uzupełniały kontrolki LED w kolorze niebieskim i białym. 
+Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens połączony z modułem Profibus CM 1243-5 (DP-Master). Osobną część stanowiła wyspa pomiarowa wyposażona w moduł wejść/wyjść oddalonych ET 200SP, moduł wejść temperaturowych 4xRTD/TC oraz moduł wyjść dyskretnych DQ 8x 24V DC/0.5A. Wyspa pomiarowa była połączona z sterownikiem za pomocą kabla Profibus. urządzenia były zasilane zasilaczem ET 200SP. Do pomiarów wykorzystano czujnik temperatury Pt100 oraz termoparę. Fizycznymi elementami informacyjnymi były dwie diody LED.  
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{media/Cale_stanowisko.jpg}
+    \includegraphics[width=0.92\textwidth]{media/Cale_stanowisko.jpg}
     \caption{Stanowisko laboratoryjne}
     \label{fig:stanowisko}
 \end{figure}
 
-\newpage
-\section{Przebieg ćwiczenia}
-Aby wykonać ćwiczenie należało wykonać następujące kroki:
-\begin{itemize}
-    \item konfiguracją sterownika
-    \item programowanie S7-PCT (Port Configuration Tool)
-    \item odczyt danych z PLC
-\end{itemize}
+\section{Konfiguracja sterownika}
 
-\subsection{Konfiguracja sterownika}
-Po poprawnym skonfigurowaniu CPU oraz M 1278 4xIO-Link master z programem TIA Portal V19, otrzymywało się wirtualny odpowiednik stanowiska laboratoryjnego. Wygląd w programie TIA Portal przedstawiono na zdjęciu \ref{fig:konfiguracja}.
+Konfigurację rozpoczęto od dodania sterownika \textit{SIMATIC S7-1200} do projektu w programie \textit{Tia portal V19}. Następnie dodano moduł Profibus w katalogu \textit{Hardware catalog}. Potwierdzeniem poprawnego dodania modułów jest poniższa konfiguracja sprzętowa (Zdjęcie \ref{fig:konfiguracja}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{media/Brak_zdjecia.png}
-    \caption{Schemat stanowiska w programie TIA Portal}
+    \includegraphics[width=1\textwidth]{media/4PLCKonfiguracja.png}
+    \caption{Konfiguracja sprzętowa}
     \label{fig:konfiguracja}
 \end{figure}
 
-Aby dokończyć konfiguracje należało przeprowadzić identyfikacje sprzętową modułu dla portu pierwszego oraz przesłać konfiguracje do sterownika. Po zakończeniu konfiguracji należało przejść do programowania S7-PCT.
+Kolejno ustawiono adres sieciowy sterownika na \textbf{10.10.4.10} oraz zmieniono wartość maski na \textbf{255.255.0.0}.
 
-\newpage
-\subsection{Programowanie S7-PCT}
-Aby rozpocząć należało kliknąć moduł IO-LINK prawym przyciskiem myszy a następnie wybrać \textit{Start Device Tool}. Otwarło się wtedy okno przedstawione na zdjęciu \ref{fig:Dev_tool}
+Następnym krokiem było dodanie modułów z wyspy pomiarowej do projektu. Zaczęto od modułu I/O oddalonych ET 200SP, który został dodany poprzez przeciągnięcie go z \textit{Hardware catalog} do \textit{Network view}. W zakładce \textit{Properties} modułu \textit{Slave} wartość Profibus address została ustawiona na 3, ponieważ taki sam adres był ustawiony na fizycznym module. Po tej operacji moduły \textit{PLC\_1} oraz \textit{Slave\_1} zostały połączone kablem Profibus (Zdjęcie \ref{fig:polaczenie}). 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{media/Brak_zdjecia.png}
-    \caption{Okno Device Tool}
-    \label{fig:Dev_tool}
+    \includegraphics[width=1\textwidth]{media/3Połączenie.png}
+    \caption{Połączenie modułów}
+    \label{fig:polaczenie}
 \end{figure}
 
-Następnie należało przejść do zakładki status i połączyć się z urządzeniem wynikiem czego powinno wyświetlić się kno jak na zdjęciu \ref{fig:status}.
+W ustawieniach sieciowych połączenia prędkość została ustawiona na 1.5 Mb/s, a profil na Modbus DP. Pozostałe parametry dostępne w menu \textit{Bus parameters} zostały ustawione automatycznie i nie były modyfikowane.
+
+Kolejnym krokiem było konfigurowanie urządzenia \textit{Slave\_1}. Po dwukrotnym kliknięciu na jego ikonkę otworzyła się zakładka \textit{Device view} wraz ze szczegółami wyspy pomiarowej. Do wyspy dodany został moduł wejść temperaturowych \textit{AI 4xRTD/TC 2-,3-,4-wire HF} oraz moduł wyjść dyskretnych \textit{DQ 8x 24V DC/0.5A}. Firmware pierwszego z modułów został ustawiony na 2.0. W podobny sposób dodano moduł końcowy \textit{Server module}. Ostatecznie urządzenie \textit{Slave\_1} prezentowało się następująco: (Zdjęcie \ref{fig:slave1}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{media/Brak_zdjecia.png}
-    \caption{Okno statusu po pomyślnym nawiązaniu połączenia.}
-    \label{fig:status}
+    \includegraphics[width=0.723\textwidth]{media/1Wyspa_profibus.png}
+    \caption{Konfiguracja urządzenia Slave\_1}
+    \label{fig:slave1}    
 \end{figure}
 
-\newpage
-
-W następnej kolejności należało przejść do zakładki \textit{Adresses}, a w nim zaznaczyć \textit{Show PLC addresses} oraz \textit{All ports}.
-Umożliwia to odczyt adresów zmiennych procesowych urządzenia w PLC. Na rysunku \ref{fig:adresy}.
-
-W programie dostajemy cztery outputy, które oznaczają odpowiednio: 
-\begin{itemize}
-    \item \textbf{PDV 1}(int) - odległość od czujnika w milimetrach
-    \item \textbf{OUT 1}(bool) - status \textit{Swiching Signal Channel 1}
-    \item \textbf{OUT 2}(bool) - status \textit{Output Configuration 2}
-    \item \textbf{Device Status}(byte) - bajt statusowy
-\end{itemize}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{media/Brak_zdjecia.png}
-    \caption{Okno adresów}
-    \label{fig:adresy}
-\end{figure}
-\newpage
-
-\subsection{Odczyt danych z PLC}
-nic
+\section{Konfiguracja modułu pomiarowego}
 
 \end{document}
