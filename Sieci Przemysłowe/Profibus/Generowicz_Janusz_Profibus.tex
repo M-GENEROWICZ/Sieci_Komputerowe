@@ -15,6 +15,7 @@
 \usepackage[justification=centering]{caption}
 \usepackage[utf8]{inputenc} 
 \usepackage{subfig}
+\usepackage{changepage}
 
 
 \usepackage{mwe} % for 'example-image'
@@ -157,7 +158,7 @@ Następnie należało utworzyć w zakładce \textit{Main[OB1]} zmienna tymczasow
 
 
 \newpage
-Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesienia przez co, jak widać na zdjęciu \ref{fig:sub3}, w przypadku ogrzewania termopary temperatura z Pt100 była niewiele wyższa od temperatury otoczenia(co wynikało z wcześniejszego ogrzania czujnika), jednak w przypadku ogrzania Pt100, jak pokazuje zdjęcie \ref{fig:sub4}, temperatura obu czujników była wyższa. Zależność ta wynika z konfiguracji, która była wcześniej ustawiona.
+Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesienia przez co, jak widać na zdjęciu \ref{fig:sub3}, w przypadku ogrzewania termopary temperatura z Pt100 była niewiele wyższa od temperatury otoczenia(co wynikało z wcześniejszego ogrzania czujnika), jednak w przypadku ogrzania Pt100, jak pokazuje zdjęcie \ref{fig:sub4}, temperatura odczytana z obu czujników była wyższa. 
 
 \vspace{2em}
 
@@ -177,4 +178,47 @@ Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesie
     \caption{Konfiguracja kanałów modułu}
     \label{fig:main2}
 \end{figure}
+
+\newpage
+\section{Diagnostyka i wizualizacja}
+Po poprawnym stworzeniu oprogramowania sterownika należało przystąpić do stworzenia logiki zapalającej ledy w zależności od temperatury. W tym celu należało stworzyć zmienną globalną odpowiadającą temperatury przy której zmieniał się led który się palił, a następnie stworzyć na \textit{Network 3} logikę programu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/13LedNetwork3.png}
+    \caption{Logika zapalająca diody}
+    \label{fig:ledy}    
+\end{figure}
+
+
+
+\newgeometry{left=0.5cm,right=1cm,top=1cm,bottom=1cm}
+\begin{figure}[!ht]
+    \centering
+        % Pod figura 1
+        \subfloat[Kod do ledu zielonego]{
+            \includegraphics[width=0.5\textwidth]{media/14Led_zielony.png}
+            
+            \label{fig:sub7}}
+        % Pod figura 2
+        \subfloat[Kod do ledu czerwonego]{
+            \includegraphics[width=0.52\textwidth]{media/14Led_czerwony.png}
+            \label{fig:sub8}
+        }
+   
+        \hfill
+     % Pod figura 1
+    \subfloat[Led zielony]{
+        \includegraphics[width=0.5\textwidth]{media/14_1Led_zielony.png}
+        
+        \label{fig:sub5}}
+    % Pod figura 2
+    \subfloat[Led czerwony]{
+        \includegraphics[width=0.5\textwidth]{media/14_1Led_czerwony.png}
+        \label{fig:sub6}
+    }
+    \caption{Konfiguracja kanałów modułu}
+    \label{fig:main3}
+\end{figure}
+
 \end{document}
