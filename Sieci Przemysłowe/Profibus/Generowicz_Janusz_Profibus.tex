@@ -66,7 +66,7 @@ Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się ste
     \caption{Stanowisko laboratoryjne}
     \label{fig:stanowisko}
 \end{figure}
-
+\newpage
 \section{Konfiguracja sterownika}
 
 Konfigurację rozpoczęto od dodania sterownika \textit{SIMATIC S7-1200} do projektu w programie \textit{Tia portal V19}. Następnie dodano moduł Profibus w katalogu \textit{Hardware catalog}. Potwierdzeniem poprawnego dodania modułów jest poniższa konfiguracja sprzętowa (Zdjęcie \ref{fig:konfiguracja}).
@@ -102,4 +102,79 @@ Kolejnym krokiem było konfigurowanie urządzenia \textit{Slave\_1}. Po dwukrotn
 
 \section{Konfiguracja modułu pomiarowego}
 
+Po skonfigurowaniu sterownika należało wejść do okna parametrów modułu \textit{AI 4xRTD\/TC 2-,3-,4-wire HF} i ustawić kanały 0 oraz 1 zgodnie z zdjęciami \ref {fig:main}, natomiast w pozostałych dwóch ustawić \textit{Deactivated}.
+
+
+
+\begin{figure}[!ht]
+    \centering
+    % Pod figura 1
+    \subfloat[Konfiguracja kanału 0]{
+        \includegraphics[width=0.55\textwidth]{media/5Konfiguracja_kanału_0.png}
+        \label{fig:sub1}}
+        \hfill
+    % Pod figura 2
+    \subfloat[Konfiguracja kanału 1]{
+        \includegraphics[width=0.55\textwidth]{media/6Konfiguracja_kanału1.png}
+        \label{fig:sub2}
+    }
+    \caption{Konfiguracja kanałów modułu}
+    \label{fig:main}
+\end{figure}
+
+\newpage
+Następnie całość należało skompilować i przesłać do sterownika. 
+Aby to zrobić trzeba było w oknie \textit{Extended download to device} wybrać opcję \textit{Start search}, które wyszukuje sterownik w sieci eternetowej. Poprawne odnalezienie przedstawia zdjęcie \ref{fig:Extdown}. Po pomyślnym odnalezieniu należało przesłać konfiguracje sterownika do urządzenia. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{media/7Extended_download.png}
+    \caption{Pomyślne odnalezienie sterownika w sieci eternetowej}
+    \label{fig:Extdown}    
+\end{figure}
+
+
+\newpage
+\section{Oprogramowanie sterownika}
+W ostatnim etapie przed przystąpieniem do tworzenia logiki programu do pomiarów temperatur należało zainicjalizować stworzyć niezbędne tagi do obsługi zmiennych. W tym celu w zakładce \textit{PLC tags} należało utworzyć \textit{Default tag table} oraz zainicjalizować w niej odpowiednie tagi. Wypełniona tablica powinna wyglądać jak na zdjęciu \ref{fig:tagi}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{media/8PLC_tags.png}
+    \caption{Wypełniona tablica tagów}
+    \label{fig:tagi}    
+\end{figure}
+
+
+\newpage
+Następnie należało utworzyć w zakładce \textit{Main[OB1]} zmienna tymczasową temp oraz blokowy schemat logiki programu. Na zdjęciu \ref{fig:bloki} przedstawiono schemat programu. Program składał się z dwóch bloków. Pierwszy blok odpowiadał za odczyt temperatury z \textit{Pt100}, drugi natomiast za odczyt temperatury z termopary. W obu blokach zmienna temp była przypisywana do odpowiedniego kanału modułu pomiarowego.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{media/9Program_main_OB1.png}
+    \caption{Main OB1}
+    \label{fig:bloki}    
+\end{figure}
+
+
+\newpage
+Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesienia przez co, jak widać na zdjęciu \ref{fig:sub3}, w przypadku ogrzewania termopary temperatura z Pt100 była niewiele wyższa od temperatury otoczenia(co wynikało z wcześniejszego ogrzania czujnika), jednak w przypadku ogrzania Pt100, jak pokazuje zdjęcie \ref{fig:sub4}, temperatura obu czujników była wyższa. Zależność ta wynika z konfiguracji, która była wcześniej ustawiona.
+
+\vspace{2em}
+
+\begin{figure}[!ht]
+    \centering
+    % Pod figura 1
+    \subfloat[Konfiguracja kanału 0]{
+        \includegraphics[width=0.8\textwidth]{media/11Różne_temp_OGRZANA_TERMOPARA.png}
+        
+        \label{fig:sub3}}
+        \hfill
+    % Pod figura 2
+    \subfloat[Konfiguracja kanału 1]{
+        \includegraphics[width=0.8\textwidth]{media/12WpływPt100natermopare.png}
+        \label{fig:sub4}
+    }
+    \caption{Konfiguracja kanałów modułu}
+    \label{fig:main2}
+\end{figure}
 \end{document}
