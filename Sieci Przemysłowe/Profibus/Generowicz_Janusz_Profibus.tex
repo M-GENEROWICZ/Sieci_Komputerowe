@@ -165,17 +165,17 @@ Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesie
 \begin{figure}[!ht]
     \centering
     % Pod figura 1
-    \subfloat[Konfiguracja kanału 0]{
+    \subfloat[Zmiana temperatury na termoparze]{
         \includegraphics[width=0.8\textwidth]{media/11Różne_temp_OGRZANA_TERMOPARA.png}
         
         \label{fig:sub3}}
         \hfill
     % Pod figura 2
-    \subfloat[Konfiguracja kanału 1]{
+    \subfloat[Zmiana temeratury na Pt100]{
         \includegraphics[width=0.8\textwidth]{media/12WpływPt100natermopare.png}
         \label{fig:sub4}
     }
-    \caption{Konfiguracja kanałów modułu}
+    \caption{Zmiany temperatur}
     \label{fig:main2}
 \end{figure}
 
@@ -191,30 +191,30 @@ Po poprawnym stworzeniu oprogramowania sterownika należało przystąpić do stw
 \end{figure}
 
 
-
-\newgeometry{left=0.5cm,right=1cm,top=1cm,bottom=1cm}
+\newpage
+Dzięki takiej konfiguracji, w zależności od temperatury odczytanej z czujników, zapalały się diody zielona i czerwona. Na zdjęciach \ref{fig:sub7} oraz \ref{fig:sub8} przedstawiono kod programu odpowiedzialny za zapalanie diod. Natomiast na zdjęciach \ref{fig:sub5} oraz \ref{fig:sub6} przedstawiono reakcje systemu fizycznego na zmianę temperatury.
 \begin{figure}[!ht]
     \centering
         % Pod figura 1
         \subfloat[Kod do ledu zielonego]{
-            \includegraphics[width=0.5\textwidth]{media/14Led_zielony.png}
+            \includegraphics[width=0.55\textwidth]{media/14Led_zielony.png}
             
             \label{fig:sub7}}
         % Pod figura 2
         \subfloat[Kod do ledu czerwonego]{
-            \includegraphics[width=0.52\textwidth]{media/14Led_czerwony.png}
+            \includegraphics[width=0.575\textwidth]{media/14Led_czerwony.png}
             \label{fig:sub8}
         }
    
         \hfill
      % Pod figura 1
     \subfloat[Led zielony]{
-        \includegraphics[width=0.5\textwidth]{media/14_1Led_zielony.png}
+        \includegraphics[width=0.55\textwidth]{media/14_1Led_zielony.png}
         
         \label{fig:sub5}}
     % Pod figura 2
     \subfloat[Led czerwony]{
-        \includegraphics[width=0.5\textwidth]{media/14_1Led_czerwony.png}
+        \includegraphics[width=0.55\textwidth]{media/14_1Led_czerwony.png}
         \label{fig:sub6}
     }
     \caption{Konfiguracja kanałów modułu}
@@ -222,7 +222,38 @@ Po poprawnym stworzeniu oprogramowania sterownika należało przystąpić do stw
 \end{figure}
 
 \restoregeometry
+\newpage
+Sieć \textit{Profibus} pozwala również na komunikacje zwrotną do monitorowania stanu urządzeń pomiarowych. W tym celu należało użyć specjalnego bloku systemowego \textit{Diagnostic error interrupt (OB82)}. Dzięki zastosowaniu tego bloku program w razie wykrycia błędu zamiast zatrzymania całej procedury,wykona procedure określoną przez użytkownika. Na zdjęciu \ref{fig:diag} przedstawiono konfigurację bloku.
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.74\textwidth]{media/15Diagnostyka.png}
+    \caption{Blok diagnostyczny}
+    \label{fig:diag}    
+\end{figure}
+\newpage
+Po zbudowaniu systemu zgodnie z zdjęciem \ref{fig:diag} można było otrzymać informacje zwrotną w razie problemu z układem fizycznym. Zdjęcie \ref{fig:sub69} przedstawia poprawnie działający układ, natomiast zdjęcie \ref{fig:sub2137} przedstawia układ, w którym połączenie zostało przerwane, co można rozpoznać po zmianie wartości na \textit{IO\_State} z wartości ...0000\_0001 na ...0001\_0000. W tym momencie warto również było zauważyć brak zmiany stanu zmiennej \textit{MultiError}, która w przypadku naszego układu nie mogła mieć innej wartości z racji połączenia z tylko jedną wyspą.
 
+
+\begin{figure}[!ht]
+    \centering
+    % Pod figura 1
+    \subfloat[Poprawnie działający układ]{
+        \includegraphics[width=0.8\textwidth]{media/16Działa_program.png}
+        
+        \label{fig:sub69}}
+        \hfill
+    % Pod figura 2
+    \subfloat[Wadliwy układ]{
+        \includegraphics[width=0.8\textwidth]{media/17Niedziała_program.png}
+        \label{fig:sub2137}
+    }
+    \caption{Sprawdzanie działania układu}
+    \label{fig:main420}
+\end{figure}
+
+\newpage
+\section{Podsumowanie}
+Na laboratorium zapoznaliśmy się z działaniem, sposobem zaprogramowania oraz obsługi sieci Profibus. Dzięki temu zdobyliśmy umiejętności niezbędne do pracy z urządzeniami pomiarowymi w przemyśle. Realizacja zadań na laboratorium pozwoliła nam na dogłębne zapoznanie się z działaniem sieci oraz nabycia podstawowych umiejętności obsługi systemów tego typu, co jest niezbędną umiejętnością w trakcie pracy w przemyśle.
 \end{document}
