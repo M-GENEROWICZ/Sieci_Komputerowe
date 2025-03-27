@@ -59,7 +59,7 @@
 Na laboratorium należało zapoznać się z komunikacją po sieci Profibus pomiędzy sterownikiem S7-1200 a oddaloną wyspą pomiarową Simatic ET 200SP. Komunikacja ta stosowana jest w przemyśle do komunikacji pomiędzy urządzeniami pomiarowymi a sterownikami PLC zazwyczaj znajdującymi się w szafie sterowniczej. Zasadniczą zaletą jest możliwość połączenia urządzenia pomiarowego z PLC na duże odległości, nawet do 1200 metrów. Dodatkowo do jednej sieci Profibus można podłączyć maksymalnie 32 urządzenia.
 
 \section{Opis Stanowiska}
-Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens połączony z modułem Profibus CM 1243-5 (DP-Master). Osobną część stanowiła wyspa pomiarowa wyposażona w moduł wejść/wyjść oddalonych ET 200SP, moduł wejść temperaturowych 4xRTD/TC oraz moduł wyjść dyskretnych DQ 8x 24V DC/0.5A. Wyspa pomiarowa była połączona z sterownikiem za pomocą kabla Profibus. urządzenia były zasilane zasilaczem ET 200SP. Do pomiarów wykorzystano czujnik temperatury Pt100 oraz termoparę. Fizycznymi elementami informacyjnymi były dwie diody LED.  
+Na stanowisku laboratoryjnym (Zdjęcie \ref{fig:stanowisko}) znajdował się sterownik S7-1200 marki Siemens połączony z modułem Profibus CM 1243-5 (DP-Master). Osobną część stanowiła wyspa pomiarowa wyposażona w moduł wejść/wyjść oddalonych ET 200SP, moduł wejść temperaturowych 4xRTD/TC oraz moduł wyjść dyskretnych DQ 8x 24V DC/0.5A. Wyspa pomiarowa była połączona z sterownikiem za pomocą kabla Profibus. Urządzenia były zasilane zasilaczem ET 200SP. Do pomiarów wykorzystano czujnik temperatury Pt100 oraz termoparę. Fizycznymi elementami informacyjnymi były dwie diody LED.  
 
 \begin{figure}[H]
     \centering
@@ -85,7 +85,7 @@ Następnym krokiem było dodanie modułów z wyspy pomiarowej do projektu. Zacz�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{media/3Połączenie.png}
+    \includegraphics[width=1\textwidth]{media/3Polaczenie.png}
     \caption{Połączenie modułów}
     \label{fig:polaczenie}
 \end{figure}
@@ -147,7 +147,7 @@ W ostatnim etapie przed przystąpieniem do tworzenia logiki programu do pomiaró
 
 
 \newpage
-Następnie należało utworzyć w zakładce \textit{Main[OB1]} zmienna tymczasową temp oraz blokowy schemat logiki programu. Na zdjęciu \ref{fig:bloki} przedstawiono schemat programu. Program składał się z dwóch bloków. Pierwszy blok odpowiadał za odczyt temperatury z \textit{Pt100}, drugi natomiast za odczyt temperatury z termopary. W obu blokach zmienna temp była przypisywana do odpowiedniego kanału modułu pomiarowego.
+Następnie należało utworzyć w zakładce \textit{Main[OB1]} zmienną tymczasową temp oraz blokowy schemat logiki programu. Na zdjęciu \ref{fig:bloki} przedstawiono schemat programu. Program składał się z dwóch bloków. Pierwszy blok odpowiadał za odczyt temperatury z \textit{Pt100}, drugi natomiast za odczyt temperatury z termopary. W obu blokach zmienna temp była przypisywana do odpowiedniego kanału modułu pomiarowego.
 
 \begin{figure}[H]
     \centering
@@ -165,9 +165,8 @@ Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesie
 \begin{figure}[!ht]
     \centering
     % Pod figura 1
-    \subfloat[Zmiana temperatury na termoparze]{
-        \includegraphics[width=0.8\textwidth]{media/11Różne_temp_OGRZANA_TERMOPARA.png}
-        
+    \subfloat[Konfiguracja kanału 0]{
+        \includegraphics[width=0.8\textwidth]{media/11Rozne_temp_OGRZANA_TERMOPARA.png}
         \label{fig:sub3}}
         \hfill
     % Pod figura 2
@@ -181,7 +180,7 @@ Temperatura odczytana z Pt 100 należało potraktować jako temperature odniesie
 
 \newpage
 \section{Diagnostyka i wizualizacja}
-Po poprawnym stworzeniu oprogramowania sterownika należało przystąpić do stworzenia logiki zapalającej ledy w zależności od temperatury. W tym celu należało stworzyć zmienną globalną odpowiadającą temperatury przy której zmieniał się led który się palił, a następnie stworzyć na \textit{Network 3} logikę programu.
+Po poprawnym stworzeniu oprogramowania sterownika należało przystąpić do stworzenia logiki zapalającej ledy w zależności od temperatury. W tym celu należało stworzyć zmienną globalną odpowiadającą temperaturze przy której zmieniał się LED, a następnie stworzyć na \textit{Network 3} logikę programu.
 
 \begin{figure}[H]
     \centering
@@ -192,7 +191,7 @@ Po poprawnym stworzeniu oprogramowania sterownika należało przystąpić do stw
 
 
 \newpage
-Dzięki takiej konfiguracji, w zależności od temperatury odczytanej z czujników, zapalały się diody zielona i czerwona. Na zdjęciach \ref{fig:sub7} oraz \ref{fig:sub8} przedstawiono kod programu odpowiedzialny za zapalanie diod. Natomiast na zdjęciach \ref{fig:sub5} oraz \ref{fig:sub6} przedstawiono reakcje systemu fizycznego na zmianę temperatury.
+Dzięki takiej konfiguracji, w zależności od temperatury odczytanej z czujników, zapalały się diody zielona i czerwona. Na zdjęciach \ref{fig:sub7} oraz \ref{fig:sub8} przedstawiono kod programu odpowiedzialny za zapalanie diod. Natomiast na zdjęciach \ref{fig:sub5} oraz \ref{fig:sub6} przedstawiono reakcję systemu fizycznego na zmianę temperatury.
 \begin{figure}[!ht]
     \centering
         % Pod figura 1
@@ -255,5 +254,5 @@ Po zbudowaniu systemu zgodnie z zdjęciem \ref{fig:diag} można było otrzymać 
 
 \newpage
 \section{Podsumowanie}
-Na laboratorium zapoznaliśmy się z działaniem, sposobem zaprogramowania oraz obsługi sieci Profibus. Dzięki temu zdobyliśmy umiejętności niezbędne do pracy z urządzeniami pomiarowymi w przemyśle. Realizacja zadań na laboratorium pozwoliła nam na dogłębne zapoznanie się z działaniem sieci oraz nabycia podstawowych umiejętności obsługi systemów tego typu, co jest niezbędną umiejętnością w trakcie pracy w przemyśle.
+Na laboratorium zapoznaliśmy się z działaniem, sposobem zaprogramowania oraz obsługi sieci Profibus. Dzięki temu zdobyliśmy umiejętności niezbędne do pracy z urządzeniami pomiarowymi w przemyśle. Realizacja zadań na laboratorium pozwoliła nam na dogłębne zapoznanie się z działaniem sieci oraz nabycie podstawowych umiejętności obsługi systemów tego typu, co jest niezbędną umiejętnością w trakcie pracy w przemyśle.
 \end{document}
