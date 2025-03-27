@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.6)  27 MAR 2025 02:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.6)  27 MAR 2025 02:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,4 +452,103 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
-LaTeX 
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+ (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count326
+\scratchdimen=\dimen182
+\scratchbox=\box103
+\nofMPsegments=\count327
+\nofMParguments=\count328
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen183
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
+\everyMPtoPDFconversion=\toks27
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package hyperref Info: Link coloring ON on input line 31.
+(auxiliary/Generowicz_Janusz_Profibus.out) (auxiliary/Generowicz_Janusz_Profibus.out)
+\@outlinefile=\write3
+\openout3 = `Generowicz_Janusz_Profibus.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen184
+\caption@adjustwidth@linewidth=\dimen185
+Package caption Info: End \AtBeginDocument code.
+Package newfloat Info: Trying Plan B...
+Package newfloat Info: `float' package detected.
+<media/Logo_AGH.jpg, id=32, 100.6962pt x 122.6181pt>
+File: media/Logo_AGH.jpg Graphic file (type jpg)
+<use media/Logo_AGH.jpg>
+Package pdftex.def Info: media/Logo_AGH.jpg  used on input line 53.
+(pdftex.def)             Requested size: 215.0023pt x 261.82945pt.
+ [1
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./media/Logo_AGH.jpg>]
+<media/Cale_stanowisko.jpg, id=44, 4641.34pt x 3481.005pt>
+File: media/Cale_stanowisko.jpg Graphic file (type jpg)
+<use media/Cale_stanowisko.jpg>
+Package pdftex.def Info: media/Cale_stanowisko.jpg  used on input line 66.
+(pdftex.def)             Requested size: 395.60345pt x 296.65169pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.70 \newpage
+              [1 <./media/Cale_stanowisko.jpg>]
+<media/4PLCKonfiguracja.png, id=51, 450.68375pt x 372.39125pt>
+File: media/4PLCKonfiguracja.png Graphic file (type png)
+<use media/4PLCKonfiguracja.png>
+Package pdftex.def Info: media/4PLCKonfiguracja.png  used on input line 77.
+(pdftex.def)             Requested size: 430.00462pt x 355.32092pt.
