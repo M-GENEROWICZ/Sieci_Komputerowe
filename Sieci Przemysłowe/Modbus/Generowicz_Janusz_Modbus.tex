@@ -68,48 +68,50 @@
 \newpage
 \section{Przygotowanie projektu oraz programu w Cspace}
 
+
+Przed przystąpieniem do ćwiczeń należało ustawić parametry sieciowe zgodnie z zdjęciem \ref{fig:zdj1} oraz potwierdzić konfiguracje za pomocą ethernetu wraz z podaniem poprawnego adresu IP, dzięki czemu możliwa jest komunikacja z PLC przez ethernet.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/4_0KonfiguracjaLan.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z konspektu)}
+    \caption{Ustawienia parametrów LAN1 w Cspace}
     \label{fig:zdj1}
 \end{figure}
 
-
+Dzięki połączeniu z PLC w kolejnych krokach możliwe będzie przesyłanie kodu z komputera do PLC oraz odczyt i zapis danych z rejestrów Modbus. Z powodu że w PLC dalej pamiętany jest kod innej grupy na dole ekranu jednym z parametrów jest \textit{Not Equal}, tak jak na zdjęciu \ref{fig:zdj2}, co oznacza że kod który jest zapisany w PLC nie jest taki sam jak kod zapisany w aplikacji.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/4_1BezKody.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z konspektu)}
+    \caption{Listwa statusu z niespójnym kodem w PLC}
     \label{fig:zdj2}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{media/4_2Zkodem.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z konspektu)}
-    \label{fig:zdj3}
-\end{figure}
+\newpage
+Następnie należało stworzyć prosty układ do zapalania diody kiedy guzik zostanie kliknięty oraz zgaszenia jej kiedy przestanie guzik nie będzie kliknięty. Na zdjęciu \ref{fig:zdj3} w listwie statusu widać również że kod został pomyślnie wgrany i zgadza się z tym co jest w PLC.
 
-
-\begin{figure}[H]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{media/4_3DebugON.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z konspektu)}
-    \label{fig:zdj4}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{media/4_4RzeczywistyprzyciskON.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z konspektu)}
-    \label{fig:zdj5}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{media/4_5RzeczywistyprzyciskOFF.png}
-    \caption{Stanowisko laboratoryjne (zdjęcie z konspektu)}
-    \label{fig:zdj6}
+        % Pod figura 1
+        \subfloat[Kod programu]{    
+            \centering
+            \includegraphics[width=0.5\textwidth]{media/4_2Zkodem.png}
+            \label{fig:zdj3}}
+        % Pod figura 2
+        \subfloat[Debugowanie aktywnego układu]{
+            \includegraphics[width=0.5\textwidth]{media/4_3DebugON.png}            \label{fig:zdj4}
+        }
+   
+        \hfill
+     % Pod figura 1
+    \subfloat[Rzeczywisty układ aktywny]{
+        \includegraphics[width=0.5\textwidth]{media/4_5RzeczywistyprzyciskOFF.png}
+        \label{fig:zdj5}}
+    % Pod figura 2
+    \subfloat[Rzeczywisty układ nieaktywny]{
+        \includegraphics[width=0.5\textwidth]{media/4_4RzeczywistyprzyciskON.png}
+        \label{fig:zdj6}
+    }
+    \caption{Konfiguracja kanałów modułu}
+    \label{fig:main1}
 \end{figure}
 
 
