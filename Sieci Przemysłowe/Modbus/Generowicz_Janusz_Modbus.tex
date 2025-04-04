@@ -58,7 +58,7 @@
 \section{Wstęp}
 Na zajęciach za zadanie mieliśmy zapoznać się z komunikacją Modbus RTU oraz stworzyć prosty program w języku drabinkowym, który będzie komunikował się z aplikacją \textit{ModRSsim2}.
 
-Protokuł Modbus jest popularnym protokołem komunikacyjnym, który jest szeroko stosowany w automatyce przemysłowej. Umożliwia on komunikację między urządzeniami, takimi jak sterowniki PLC, czujniki, napędy i inne urządzenia. Modbus RTU (Remote Terminal Unit) jest jedną z najczęściej używanych wersji tego protokołu, która wykorzystuje transmisję szeregową RS-232 lub RS-485.
+Protokół Modbus jest popularnym protokołem komunikacyjnym, który jest szeroko stosowany w automatyce przemysłowej. Umożliwia on komunikację między urządzeniami, takimi jak sterowniki PLC, czujniki, napędy i inne urządzenia. Modbus RTU (Remote Terminal Unit) jest jedną z najczęściej używanych wersji tego protokołu, która wykorzystuje transmisję szeregową RS-232 lub RS-485.
 
 Moduł ten oparty jest na architekturze slave-master, gdzie jedno urządzenie master może jednocześnie być podłączone do 247 urządzeń.
 
@@ -167,7 +167,7 @@ Po skonfigurowaniu komunikacji między aplikacją a PLC należało przejść do 
 \newpage
 \subsection{Test 1}
 
-W pierwszym teście należało umożliwić odczyt stanu pierwszej cewki ze Slave'a, należało ustawić parametry rejestru zgodnie z tabelą \ref{tab:tagi}. Dzięki takiemu ustawienie możliwe jest odczytanie stanu cewki. Aby to zrobić należało zmienić stan cewki w aplikacji \textit{ModRSsim2}. Aby odczytać stan cewki należało kliknąć przycisk na układzie tak jak na zdjęciu \ref{fig:zdj6}. W momencie kiedy cewka w aplikacji była ustawiona na 1, wartość zmiennej \textit{\%M00001} zmienił się z \texttt{OFF} na \texttt{ON}. Zdjęcie \ref{fig:zdj13} przedstawia zmiane stanu cewki zapisanej w zmiennej \textit{\%M00001} w aplikacji \textit{Cspace}.
+W pierwszym teście należało umożliwić odczyt stanu pierwszej cewki ze Slave'a, należało ustawić parametry rejestru zgodnie z tabelą \ref{tab:tagi}. Dzięki takiemu ustawienie możliwe jest odczytanie stanu cewki. Aby to zrobić należało zmienić stan cewki w aplikacji \textit{ModRSsim2}. Aby odczytać stan cewki należało kliknąć przycisk na układzie tak jak na zdjęciu \ref{fig:zdj6}. W momencie kiedy cewka w aplikacji była ustawiona na 1, wartość zmiennej \textit{\%M00001} zmienił się z \texttt{OFF} na \texttt{ON}. Zdjęcie \ref{fig:zdj13} przedstawia zmianę stanu cewki zapisanej w zmiennej \textit{\%M00001} w aplikacji \textit{Cspace}.
 % \begin{figure}[H]
 %     \centering
 %     \includegraphics[width=0.5\textwidth]{media/5_test1_1_Watchzmienne.png}
@@ -284,7 +284,7 @@ W ostatniej linijce znajduje się odpowiedź urządzenia Modbus. Kolejne bajty o
 \begin{itemize}
     \item \textbf{Adres Slave'a} - 01
     \item \textbf{Kod funkcji} - 06 (zapis pojedynczego rejestru)
-    \item \textbf{Adres poczatkowy} - 00 00 
+    \item \textbf{Adres początkowy} - 00 00 
     \item \textbf{Stan bajtów} - 00 50
     \item \textbf{Suma kontrolna CRS} - 89 F6
 \end{itemize}
@@ -382,11 +382,11 @@ W zadaniu drugim należało stworzyć program który miał za zadanie zmieniać 
     R01   & MbusSlaveID = 1  & \makecell{Adres Slave'a odbierającego wiadomość.\\ModRSsim ma adres 1.} \\\hline 
     R02   & MbusCommand = 15 & \makecell{Modbus Function Code = 15 oznacza Force Multiple Coils} \\\hline
     R03   & MbusSlaveOffset = 0 & \makecell{Adres cewki  w Slave, którą chcemy nadpisać.\\Cewka nr 1 ma adres 0.} \\\hline
-    R04   & MbusDataLength = 3 & \makecell{Długość danych, które chcemy nadpisać - 3 bit.} \\\hline
-    R05   & MbusReferenceType = 8  & \makecell{Typ rejestru, który chcemy odczytać.\\8 oznacza rejestr typu Register (\%R)} \\\hline
-    R06   & MbusReferenceOffset = 7 & \makecell{Adres pamięci w PLC, do którego chcemy zapisać stan rejestru,\\czyli adres bitu \%R7.} \\\hline
+    R04   & MbusDataLength = 5 & \makecell{Długość danych, które chcemy nadpisać - 5 bitów.} \\\hline
+    R05   & MbusReferenceType = 76  & \makecell{Typ rejestru, który chcemy odczytać.\\76 oznacza rejestr typu Memory (\%M)} \\\hline
+    R06   & MbusReferenceOffset = 0 & \makecell{Adres pamięci w PLC, do którego chcemy zapisać stan rejestru,\\czyli adres bitu \%M1.} \\\hline
     R07   & MbusStatus & \makecell{Rejestr przechowujący wynik działania bloku,\\można z niego odczytać ewentualne błędy komunikacji.} \\\hline
-    R8 - R10 &  &\makecell{Rejestry, w których zapisane będą litery \texttt{AGH}.\\R8 - R10 odpowiadają rejestrom 8 - 10, czyli pierwszym wolnym rejestrom} \\\hline
+    M1 - M5 &  &\makecell{Rejestry, w których zapisane będą stany cewek.\\M1 - M5 odpowiadają cewkom 1 - 5} \\\hline
     \end{tabular}
     \label{tab:tagi4}
 \end{table}
@@ -436,7 +436,7 @@ W ostatniej linijce znajduje się odpowiedź urządzenia Modbus. Kolejne bajty o
 
 \newpage
 \subsection{Zadanie 3}
-W zadaniu trzecim należało zmodyfikować kod tak aby możliwe było zapisanie danych na rejestrze PLC. Aby to zrobić należało ustawić tagi zgodnie z tabelą \ref{tab:tagi5}, dodatkowo należało pamięrać aby typ zmiennych przy rejestrach w których zapisywane były dane były typu \textit{INT}, a dane były zapisywane zgodnie z kodem ASCI. Dzięki czemu możliwe było odczytanie w aplikacji tekstu, co przedstawione jest na zdjęciu \ref{fig:zdj21}.
+W zadaniu trzecim należało zmodyfikować kod tak aby możliwe było zapisanie danych na rejestrze PLC. Aby to zrobić należało ustawić tagi zgodnie z tabelą \ref{tab:tagi5}, dodatkowo należało pamiętać aby typ zmiennych przy rejestrach w których zapisywane były dane były typu \textit{INT}, a dane były zapisywane zgodnie z kodem ASCI. Dzięki czemu możliwe było odczytanie w aplikacji tekstu, co przedstawione jest na zdjęciu \ref{fig:zdj21}.
 
 
 \begin{table}[h]
@@ -446,12 +446,12 @@ W zadaniu trzecim należało zmodyfikować kod tak aby możliwe było zapisanie 
     \textbf{Adres} & \textbf{Nazwa tagu}  & \textbf{Opis} \\\hline
     R01   & MbusSlaveID = 1  & \makecell{Adres Slave'a odbierającego wiadomość.\\ModRSsim ma adres 1.} \\\hline 
     R02   & MbusCommand = 16 & \makecell{Modbus Function Code = 16 oznacza Preset Multiple Register} \\\hline
-    R03   & MbusSlaveOffset = 0 & \makecell{Adres cewki  w Slave, którą chcemy nadpisać.\\Cewka nr 1 ma adres 0.} \\\hline
-    R04   & MbusDataLength = 5 & \makecell{Długość danych, które chcemy nadpisać - 5 bit.} \\\hline
-    R05   & MbusReferenceType = 76  & \makecell{Typ rejestru, który chcemy odczytać.\\76 oznacza rejestr typu Memory (\%M)} \\\hline
-    R06   & MbusReferenceOffset = 0 & \makecell{Adres pamięci w PLC, do którego chcemy zapisać stan cewki,\\czyli adres bitu \%M1.} \\\hline
+    R03   & MbusSlaveOffset = 0 & \makecell{Adres cewki w Slave, którą chcemy nadpisać.\\Cewka nr 1 ma adres 0.} \\\hline
+    R04   & MbusDataLength = 3 & \makecell{Długość danych, które chcemy nadpisać - 3 bity.} \\\hline
+    R05   & MbusReferenceType = 8  & \makecell{Typ rejestru, który chcemy odczytać.\\8 oznacza rejestr typu Register (\%R)} \\\hline
+    R06   & MbusReferenceOffset = 7 & \makecell{Adres rejestru w PLC, do którego chcemy zapisać zmienną,\\czyli adres \%R8.} \\\hline
     R07   & MbusStatus & \makecell{Rejestr przechowujący wynik działania bloku,\\można z niego odczytać ewentualne błędy komunikacji.} \\\hline
-    M1 - M5 &  &\makecell{Rejestry, w których ustawiane będą stany cewek.\\M1 - M5 odpowiadają cewkom 1 - 5.} \\\hline
+    R8 - R10 &  &\makecell{Rejestry, w które wpisywane będą litery \texttt{AGH}.\\R8 - R10 odpowiadają rejestrom od 8 do 10.} \\\hline
     \end{tabular}
     \label{tab:tagi5}
 \end{table}
@@ -529,7 +529,7 @@ Natomiast na zdjęciu \ref{fig:zdj23} przedstawia błąd wynikający z próby wy
 \section{Podsumowanie}
 Na zajęciach należało zapoznać się z obsługą Modbusa oraz z aplikacją \textit{ModRSsim2}. Komunikacja ta jest jedną z najpopularniejszych komunikacji w przemyśle.
 
-Jedną z najważniejszych umięjętności do obsługi tej komunikacji jest umiejętność odczytu ramek oraz znajomość kodów komunikatów co nleżało wykonać w zadaniach. Dzięki temu można było nauczyć się jak działa komunikacja oraz jak można ją wykorzystać w praktyce. W zadaniach należało zapoznać się z kodami do obsługi modbusa oraz nauczyć się jak w różny sposób można przesyłać dane. Ponadto należało również zapoznać się z tagiem \textit{MbusStatus} co jest niezbędną umiejętnościa w obsłudze urządzeń.
+Jedną z najważniejszych umiejętności do obsługi tej komunikacji jest umiejętność odczytu ramek oraz znajomość kodów komunikatów co należało wykonać w zadaniach. Dzięki temu można było nauczyć się jak działa komunikacja oraz jak można ją wykorzystać w praktyce. W zadaniach należało zapoznać się z kodami do obsługi modbusa oraz nauczyć się jak w różny sposób można przesyłać dane. Ponadto należało również zapoznać się z tagiem \textit{MbusStatus} co jest niezbędną umiejętnością w obsłudze urządzeń.
 
 Ćwiczenia te pozwoliły nam poznać podstawy działania protokołu oraz na zrozumienie jego działania.
 
