@@ -82,7 +82,7 @@ Przed przystąpieniem do ćwiczeń należało ustawić parametry sieciowe zgodni
     \label{fig:zdj1}
 \end{figure}
 
-Dzięki połączeniu z PLC w kolejnych krokach możliwe będzie przesyłanie kodu z komputera do PLC oraz odczyt i zapis danych z rejestrów Modbus. Z powodu że w PLC dalej pamiętany jest kod innej grupy na dole ekranu jednym z parametrów jest \textit{Not Equal}, tak jak na zdjęciu \ref{fig:zdj2}, co oznacza że kod który jest zapisany w PLC nie jest taki sam jak kod zapisany w aplikacji.
+Dzięki połączeniu z PLC w kolejnych krokach możliwe będzie przesyłanie kodu z komputera do PLC oraz odczyt i zapis danych z rejestrów Modbus. Ponieważ w PLC nadal znajduje się kod innej grupy, na dole ekranu widoczny jest parametr \textit{Not Equal}, tak jak na zdjęciu \ref{fig:zdj2}, co oznacza, że kod zapisany w PLC różni się od kodu w aplikacji.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/4_1BezKody.png}
@@ -122,7 +122,7 @@ Następnie należało stworzyć prosty układ do zapalania diody kiedy guzik zos
 
 \newpage
 \section{Obsługa oraz testy komunikacji}
-Po pomyślnym wgraniu kodu należało przejść do stworzenia tagów komunikacyjnych ułatwiających komunikacje z Modbus. Każdy z tagów powinien być 16 bitowy. Na zdjęciu \ref{fig:zdj9} przedstawione jest jak należało zainicjować tagi oraz do czego każdy z nich był używany
+Po pomyślnym wgraniu kodu należało przejść do stworzenia tagów komunikacyjnych ułatwiających komunikacje z Modbus. Każdy z tagów powinien być 16 bitowy. Na zdjęciu \ref{fig:zdj9} przedstawione jest jak należało zainicjować tagi oraz do czego każdy z nich był używany.
 
 
 \begin{figure}[H]
@@ -527,10 +527,10 @@ Natomiast na zdjęciu \ref{fig:zdj23} przedstawia błąd wynikający z próby wy
 \end{figure}
 \newpage
 \section{Podsumowanie}
-Na zajęciach należało zapoznać się z obsługą Modbusa oraz z aplikacją \textit{ModRSsim2}. Komunikacja ta jest jedną z najpopularniejszych komunikacji w przemyśle.
+Na zajęciach należało zapoznać się z obsługą protokołu Modbus oraz z aplikacją \textit{ModRSsim2}. Komunikacja ta jest jedną z najpopularniejszych komunikacji w przemyśle.
 
 Jedną z najważniejszych umiejętności do obsługi tej komunikacji jest umiejętność odczytu ramek oraz znajomość kodów komunikatów co należało wykonać w zadaniach. Dzięki temu można było nauczyć się jak działa komunikacja oraz jak można ją wykorzystać w praktyce. W zadaniach należało zapoznać się z kodami do obsługi modbusa oraz nauczyć się jak w różny sposób można przesyłać dane. Ponadto należało również zapoznać się z tagiem \textit{MbusStatus} co jest niezbędną umiejętnością w obsłudze urządzeń.
 
-Ćwiczenia te pozwoliły nam poznać podstawy działania protokołu oraz na zrozumienie jego działania.
+Ćwiczenia te umożliwiły zapoznanie się z podstawami działania protokołu Modbus oraz lepsze zrozumienie jego mechanizmów.
 
 \end{document}
