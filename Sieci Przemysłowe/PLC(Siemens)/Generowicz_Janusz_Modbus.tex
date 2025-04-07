@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{indentfirst}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage[colorlinks=true, linkcolor=gray, urlcolor=blue, citecolor=green]{hyperref}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[justification=centering]{caption}
+\usepackage[utf8]{inputenc} 
+\usepackage{subfig}
+\usepackage{changepage}
+
+
+\usepackage{mwe} % for 'example-image'
+\usepackage{newfloat}
+\DeclareFloatingEnvironment{graph}
+\addto\captionspolish{%
+  \renewcommand{\graphname}{Wykres}%
+  \renewcommand{\figurename}{Zdjęcie}%
+  \renewcommand{\tablename}{Tabela}%
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Sprawozdanie z laboratorium 2}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Podstawy PLC (Siemens) 
+            
+        \vspace{1.5cm}
+            
+        \textbf{Łukasz Janusz\\Marek Generowicz}
+
+        \normalsize      
+        \textcolor{gray}{03.04.2025}
+        \vfill
+        \begin{figure}[hb]
+            \centering
+            \includegraphics[width=0.5\textwidth]{media/Logo_AGH.jpg}
+        \end{figure}   
+    \end{center}
+\end{titlepage}
+
+\newpage
+\section{Wstęp}
+
+\section{Konfiguracja sterownika}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/1_1_Dodanie_modułu.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/1_2_Ustawienia_sieciowe_PLC.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/1_3_PLC_Online.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj3}
+\end{figure}
+
+
+\newpage
+\section{Odczyt i zapis zmiennych procesowych}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/2_1_Ustawienia_wejść_IO.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/2_2_Ustawienia_wejść_IO_OFF.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/2_3_Ustawienia_wyjść.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/2_4_Tagi_moduł_1.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/2_5_Tagi_moduł_2.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj8}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/2_6_Watch_tab_Online.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj9}
+\end{figure}
+
+\newpage
+\section{Skalowanie zmiennych procesowych}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/3_1_PLC_tags_scaled.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj10}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+        % Pod figura 1
+        \subfloat[DO UZUPEŁNIENIA]{    
+            \centering
+            \includegraphics[width=0.5\textwidth]{media/3_2_1_PLC_logika_hej.png}
+            \label{fig:zdj11}}
+        % Pod figura 1
+        \subfloat[DO UZUPEŁNIENIA]{
+            \includegraphics[width=0.5\textwidth]{media/3_2_2_PLC_logika_hej.png}
+            \label{fig:zdj12}}
+            \hfill
+        % Pod figura 2
+        \subfloat[DO UZUPEŁNIENIA]{
+            \includegraphics[width=0.5\textwidth]{media/3_2_3_PLC_logika_hej.png}
+            \label{fig:zdj13}
+        }
+    \caption{Konfiguracja kanałów modułu}
+    \label{fig:main1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{media/3_3_Watch_table_online.png}
+    \caption{DO UZUPEŁNIENIA}
+    \label{fig:zdj14}
+\end{figure}
+
+\newpage
+\section{Podsumowanie}
+\end{document}
