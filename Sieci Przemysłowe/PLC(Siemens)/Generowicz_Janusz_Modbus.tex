@@ -57,27 +57,59 @@
 
 \newpage
 \section{Wstęp}
+Na zajęciach należało zapoznać się z podstawami programowania sterowników PLC, na tych ćwiczeniach do dyspozycji posiadaliśmy  sterownik \textit{S7 - 1200} marki Siemens, który jest przedstawiony na zdjęciu \ref{fig:zdj21}. Całe stanowisk składało się z poniższych części:
+
+\begin{itemize}
+    \item \textbf{Pompy} 
+    \item \textbf{Zbiornika} 
+    \item \textbf{Elektrozaworów solenoidowych}
+    \item \textbf{Zaworów ręcznych}  
+\end{itemize}
+
+Za pomocą PLC możliwe było sterowane były elektrozawory, dzięki którym można było kontrolować ciśnienie w rurociągach co poprzez presostat załączenie pompy pozwalającej na przelewanie cieczy do zbiornika. Na zdjęciu \ref{fig:zdj37} przedstawione jest całe stanowisko, które było wykorzystywane podczas ćwiczeń.
+
+Ponadto w układzie możliwe były pomiary przepływu i ciśnienia oraz poziomu i temperatury cieczy w zbiorniku.
+
+\begin{figure}[H]
+    \centering
+        % Pod figura 1
+        \subfloat[PLC obsługujący elektrozawory (zdjęcie z konspektu)]{    
+            \centering
+            \includegraphics[width=0.5\textwidth]{media/0_2_PLC.png}
+            \label{fig:zdj21}}
+        % Pod figura 1
+        \subfloat[Całe stanowisko (zdjęcie z konspektu)]{
+            \includegraphics[width=0.5\textwidth]{media/0_1_Całe_stanowisko.png}
+            \label{fig:zdj37}}
+    \caption{Konfiguracja kanałów modułu}
+    \label{fig:main0}
+\end{figure}
+
 
 \section{Konfiguracja sterownika}
+Na początku ćwiczenia należało skonfigurować sterownik PLC w aplikacji \textit{TIA Portal V19} aby można było odczytać wejścia analogowe oraz zapisać wyjścia analogowe. W tym celu należało na początku należało dodać jednostkę centralną, a następnie dodać dwa moduły wejść/wyjść analogowych, które w kolejnych krokach pozwolą nam na obsługę elektrozaworów.
 
+Po poprawnej konfiguracji wirtualny schemat układu z PLC wyglądał tak jak na zdjęciu \ref{fig:zdj1}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/1_1_Dodanie_modułu.png}
-    \caption{DO UZUPEŁNIENIA}
+    \caption{Wirtualny układ z PLC}
     \label{fig:zdj1}
 \end{figure}
 
+Następnie należało ustawić poprawny adres IP, aby można było połączyć się z PLC. W tym celu należało kliknąć prawym przyciskiem myszy na jednostkę centralną i wybrać opcję \textit{Properties}, a następnie w zakładce \textit{PROFINET Interface} ustawić poprawny adres IP. Na zdjęciu \ref{fig:zdj2} przedstawione są ustawienia sieciowe PLC.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/1_2_Ustawienia_sieciowe_PLC.png}
-    \caption{DO UZUPEŁNIENIA}
+    \caption{Ustawienia sieciowe PLC}
     \label{fig:zdj2}
 \end{figure}
 
+Po poprawnym wykonaniu można było połączyć się z PLC. Poprawne skonfigurowanie i wejście w tryb Online skutkowało, że Interface w aplikacji wyglądał tak jak na zdjęciu \ref{fig:zdj3}. Dzięki temu można było przejść do kolejnych kroków ćwiczenia.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/1_3_PLC_Online.png}
-    \caption{DO UZUPEŁNIENIA}
+    \caption{Poprawne połączenie z PLC}
     \label{fig:zdj3}
 \end{figure}
 
