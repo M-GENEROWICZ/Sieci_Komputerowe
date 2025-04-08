@@ -57,18 +57,18 @@
 
 \newpage
 \section{Wstęp}
-Na zajęciach należało zapoznać się z podstawami programowania sterowników PLC, na tych ćwiczeniach do dyspozycji posiadaliśmy  sterownik \textit{S7 - 1200} marki Siemens, który jest przedstawiony na zdjęciu \ref{fig:zdj21}. Całe stanowisk składało się z poniższych części:
+Celem zajęć było zapoznanie się z podstawami programowania sterowników PLC. Podczas ćwiczeń, do dyspozycji mieliśmy sterownik \textit{S7 - 1200} marki Siemens, który jest przedstawiony na zdjęciu \ref{fig:zdj21}. Całe stanowisko składało się z poniższych części:
 
 \begin{itemize}
-    \item \textbf{Pompy} 
-    \item \textbf{Zbiornika} 
-    \item \textbf{Elektrozaworów solenoidowych}
-    \item \textbf{Zaworów ręcznych}  
+    \item \textbf{Pompa} 
+    \item \textbf{Zbiornik} 
+    \item \textbf{Elektrozawory solenoidowe}
+    \item \textbf{Zawory ręczne}  
 \end{itemize}
 
-Za pomocą PLC możliwe było sterowane były elektrozawory, dzięki którym można było kontrolować ciśnienie w rurociągach co poprzez presostat załączenie pompy pozwalającej na przelewanie cieczy do zbiornika. Na zdjęciu \ref{fig:zdj37} przedstawione jest całe stanowisko, które było wykorzystywane podczas ćwiczeń.
+Za pomocą PLC sterowane były elektrozawory, dzięki którym można było kontrolować ciśnienie w rurociągach, przez co presostat wyczuwał zmianę ciśnienia i załączała się pompa pozwalająca na przelewanie cieczy do zbiornika. Na zdjęciu \ref{fig:zdj37} przedstawione jest całe stanowisko, które było wykorzystywane podczas ćwiczeń.
 
-Ponadto w układzie możliwe były pomiary przepływu i ciśnienia oraz poziomu i temperatury cieczy w zbiorniku.
+Ponadto w układzie możliwe były pomiary przepływu i ciśnienia cieczy oraz jej poziomu i temperatury w zbiorniku.
 
 \begin{figure}[H]
     \centering
@@ -87,7 +87,7 @@ Ponadto w układzie możliwe były pomiary przepływu i ciśnienia oraz poziomu 
 
 
 \section{Konfiguracja sterownika}
-Na początku ćwiczenia należało skonfigurować sterownik PLC w aplikacji \textit{TIA Portal V19} aby można było odczytać wejścia analogowe oraz zapisać wyjścia analogowe. W tym celu należało na początku należało dodać jednostkę centralną, a następnie dodać dwa moduły wejść/wyjść analogowych, które w kolejnych krokach pozwolą nam na obsługę elektrozaworów.
+Na początku ćwiczenia należało skonfigurować sterownik PLC w aplikacji \textit{TIA Portal V19} tak, aby można było odczytać wejścia analogowe oraz zapisać wyjścia analogowe. W tym celu należało dodać jednostkę centralną, a następnie dodać dwa moduły wejść/wyjść analogowych, które w kolejnych krokach pozwolą nam na obsługę elektrozaworów.
 
 Po poprawnej konfiguracji wirtualny schemat układu z PLC wyglądał tak jak na zdjęciu \ref{fig:zdj1}.
 \begin{figure}[H]
@@ -105,7 +105,7 @@ Następnie należało ustawić poprawny adres IP, aby można było połączyć s
     \label{fig:zdj2}
 \end{figure}
 
-Po poprawnym wykonaniu można było połączyć się z PLC. Poprawne skonfigurowanie i wejście w tryb Online skutkowało, że Interface w aplikacji wyglądał tak jak na zdjęciu \ref{fig:zdj3}. Dzięki temu można było przejść do kolejnych kroków ćwiczenia.
+Po poprawnym wykonaniu można było połączyć się z PLC. Poprawne skonfigurowanie i wejście w tryb Online skutkowało, wyglądem Interface w aplikacji takim jak na zdjęciu \ref{fig:zdj3}. Dzięki temu można było przejść do kolejnych kroków ćwiczenia.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/1_3_PLC_Online.png}
@@ -116,17 +116,17 @@ Po poprawnym wykonaniu można było połączyć się z PLC. Poprawne skonfigurow
 
 \newpage
 \section{Odczyt i zapis zmiennych procesowych}
-Po poprawnym połączeniu z PLC należało skonfigurować moduły analogowe zgodnie z schematem stanowiska. Wszystkie kanały w module 1 oraz pierwszy kanał w module 2 należało skonfigurować zgodnie tak jak na zdjęciu \ref{fig:zdj4} natomiast pozostałe kanały w module 2 należało skonfigurować tak jak na zdjęciu \ref{fig:zdj5}, dzięki czemu moduły które nie będą wykorzystywane nie będą zgłaszać błędów. Ważne było również aby wszystkie z wejść były wejściami prądowymi w zakresie od 4 do 20 mA.
+Po poprawnym połączeniu z PLC należało skonfigurować moduły analogowe zgodnie ze schematem stanowiska. Wszystkie kanały w module 1 oraz pierwszy kanał w module 2 należało skonfigurować tak jak na zdjęciu \ref{fig:zdj4} natomiast pozostałe kanały w module 2 należało skonfigurować tak jak na zdjęciu \ref{fig:zdj5}, dzięki czemu moduły które nie będą wykorzystywane nie będą zgłaszać błędów. Ważne było również aby wszystkie z wejść były wejściami prądowymi w zakresie od 4 do 20 mA.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{media/2_1_Ustawienia_wejść_IO.png}
+    \includegraphics[width=0.5\textwidth]{media/2_1_Ustawienia_wejsc_IO.png}
     \caption{Przykład konfiguracji aktywnych kanałów wejść}
     \label{fig:zdj4}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{media/2_2_Ustawienia_wejść_IO_OFF.png}
+    \includegraphics[width=0.5\textwidth]{media/2_2_Ustawienia_wejsc_IO_OFF.png}
     \caption{Przykład konfiguracji kanałów wejść nieaktywnych}
     \label{fig:zdj5}
 \end{figure}
@@ -134,7 +134,7 @@ Po poprawnym połączeniu z PLC należało skonfigurować moduły analogowe zgod
 Natomiast w obu modułach wszystkie kanały wyjść miały wyglądać tak jak na zdjęciu \ref{fig:zdj6}. Ważne aby ustawić je jako kanały napięciowe.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{media/2_3_Ustawienia_wyjść.png}
+    \includegraphics[width=0.5\textwidth]{media/2_3_Ustawienia_wyjsc.png}
     \caption{Przykład konfiguracji kanałów wyjść}
     \label{fig:zdj6}
 \end{figure}
@@ -157,9 +157,9 @@ Po skonfigurowaniu wejść i wyjść należało w każdym z modułów opisać ta
 
 Po poprawnym skonfigurowaniu obu modułów należało przesłać ustawienia do sterownika, a następnie stworzyć \textit{Watch table}, która umożliwi nam odczyt wartości tagów. Dzięki temu po przejściu w tryb online nie dość że można było odczytywać parametry takie jak poziom cieczy w zbiorniku, ciśnienia, temperature cieczy w zbiorniku czy przepływ. 
 
-Warto zauważyć że największa wartość jaką możemy otrzymać wynosi 32 767, wynika to z tego że w PLC na każde z wyjść i wejść przypadają 4 miejsca w któ®ych możemy wpisać zmienną w systemie szesnastkowym ($2^{4^4} = 2^{16} = 65536$ ale musimy podzielić to na pół z czego otrzymujemy zakres od 0 do 27648).
+Warto zauważyć że największa wartość jaką możemy otrzymać wynosi 32 767, wynika to z tego że w PLC na każde z wyjść i wejść przypadają 4 miejsca w których możemy wpisać zmienną w systemie szesnastkowym ($2^{4^4} = 2^{16} = 65536$ ale musimy podzielić to na pół z czego otrzymujemy zakres od 0 do 27648).
 
-Również warta uwagi jest wartość przy przepływie, które wynikają z tego wartości zwracane przez czujnik były poza zakresem, ponieważ czujnik ten powinien być używany do większego przepływu.
+Również warta uwagi jest wartość przy przepływie, z której wynika, żę wartości zwracane przez czujnik były poza zakresem, ponieważ czujnik ten powinien został zaprojektowany do mierzenia większego przepływu.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{media/2_6_Watch_tab_Online.png}
@@ -167,11 +167,11 @@ Również warta uwagi jest wartość przy przepływie, które wynikają z tego w
     \label{fig:zdj9}
 \end{figure}
 
-Dodatkowo można było kontrolować zawory, 1 i 2 do zwiększania poziomu cieczy w zbiorniku a 3 do zmniejszania poziomu. 
+Dodatkowo można było kontrolować zawory, 1 i 2 do zwiększania poziomu cieczy w zbiorniku oraz 3 do zmniejszania poziomu. 
 
 \newpage
 \section{Skalowanie zmiennych procesowych}
-W ostatnim zadaniu należało stworzyć funkcję, która będzie skalować zmienne procesowe. Jednak przed przystąpieniem do tworzenia funkcji należało najpierw dodać dodatkowe parametry do PLC tags (tablica została automatycznie uzupełniona po stworzeniu tagów konkretnych modułów), które miały za zadanie odpowiadać wartościom przeskalowanym. Ostateczna tabela PLC tags powinna wyglądać tak jak na zdjęciu \ref{fig:zdj10}
+W ostatnim zadaniu należało stworzyć funkcję, która będzie skalować zmienne procesowe. Jednak przed przystąpieniem do tworzenia funkcji, należało najpierw dodać dodatkowe parametry do PLC tags (tablica została automatycznie uzupełniona po stworzeniu tagów konkretnych modułów), które miały za zadanie odpowiadać wartościom przeskalowanym. Ostateczna tabela PLC tags powinna wyglądać tak jak na zdjęciu \ref{fig:zdj10}
 
 \begin{figure}[H]
     \centering
@@ -181,10 +181,10 @@ W ostatnim zadaniu należało stworzyć funkcję, która będzie skalować zmien
 \end{figure}
 
 
-Po stworzeniu wszystkich potrzebnych tagów należało stworzyć funkcję, która będzie odpowiedzialna za przeskalowanie zmiennych procesowych. W tym celu niezbędne było utworzenie zmiennej pomocniczej \textit{temp}, jednak nie trzeba było tworzyć jej dla każdej drabinki osobno z racji że w \textit{TIA Portal} kody wykonują się sekwencyjnie.
+Po stworzeniu wszystkich potrzebnych tagów należało stworzyć funkcję, która będzie odpowiedzialna za przeskalowanie zmiennych procesowych. W tym celu niezbędne było utworzenie zmiennej pomocniczej \textit{temp}, jednak nie trzeba było tworzyć jej dla każdej drabinki osobno z racji, że w \textit{TIA Portal} kody wykonują się sekwencyjnie.
 
 \vspace{1em}
-Zdjęcie \ref{fig:zdj13} przedstawia jak powinny wyglądać drabinki dla zmiennych wyjściowych. Warto zauważyć że w tym przypadku należało przeskalować zmienną z zakresu od 0 do 100 (odpowiadającemu zakresowi procentowemu) do zakresu od 0 do 27648 aby otrzymać zmienną wyjściową. 
+Zdjęcie \ref{fig:zdj13} przedstawia jak powinny wyglądać drabinki dla zmiennych wyjściowych. Warto zauważyć, że w tym przypadku należało przeskalować zmienną z zakresu od 0 do 100 (odpowiadającemu zakresowi procentowemu) do zakresu od 0 do 27648 aby otrzymać zmienną wyjściową. 
 
 
 \begin{figure}[H]
@@ -195,7 +195,7 @@ Zdjęcie \ref{fig:zdj13} przedstawia jak powinny wyglądać drabinki dla zmienny
 \end{figure}
 
 \newpage
-Dla każdego z tagów wejścia należało analogiczne funkcje, jednak te miały za zadanie przeskalowywać zmienną z zakresu od 0 do 27648 do zakresu od 0 do 100. Funkcje te przedstawione są na zdjęciach \ref{fig:main420}.
+Dla każdego z tagów wejścia należało stworzyć analogiczne funkcje, jednak te miały za zadanie przeskalowywać zmienną z zakresu od 0 do 27648 do zakresu od 0 do 100. Funkcje te przedstawione są na zdjęciach \ref{fig:main420}.
 \begin{figure}[H]
     \centering
         % Pod figura 1
@@ -222,7 +222,7 @@ Po poprawnym stworzeniu funkcji należało przesłać zmiany na PLC, a następni
 
 \newpage
 \section{Podsumowanie}
-Podczas drugiego laboratorium z podstaw programowania sterowników PLC studenci zapoznali się z konfiguracją oraz obsługą sterownika Siemens S7-1200 w środowisku TIA Portal V19. Głównym celem ćwiczenia było stworzenie kompletnego układu sterowania procesem przemysłowym z wykorzystaniem sygnałów analogowych i cyfrowych.
+Podczas zajęć zapoznano się z podstawami programowania sterowników PLC w środowisku TIA Portal V19. Głównym celem ćwiczenia było stworzenie kompletnego układu sterowania przepływem cieczy w obowdzie zamkniętym z wykorzystaniem sygnałów analogowych i cyfrowych.
 
 W ramach zajęć przeprowadzono:
 \begin{itemize}
